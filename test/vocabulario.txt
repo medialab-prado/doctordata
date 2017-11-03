@@ -1,0 +1,29 @@
+{
+	objeto Monumentosuperclase:elementoUrbano
+	"uri": { "type": "uri" , "value": "http://opendata.caceres.es/recurso/medio-ambiente/arboles/Arbol/acer03006010005001" }
+	domain mad:cod int # Codigo propio o borrar
+	domain mad:tipo concepto #Investigar
+	domain mad:calf string #Investigar
+	# domain mad:localizacion string hacer referencia entidad urbana, buscar schema address
+	domain geo:lat decimal
+	domain geo:long decimal
+	domain schema:TouristAttraction
+	domain rdfs:label string
+}
+
+	
+
+objeto Fuente
+superclase:elementoUrbano
+	a mad:Monumento
+	domain mad:cod int # Codigo propio o borrar
+	domain mad:tipo concepto #Investigar
+	domain mad:calf string #Investigar
+	# domain mad:localizacion string hacer referencia entidad urbana, buscar schema address
+	domain geo:lat decimal
+	domain geo:long decimal
+	domain schema:TouristAttraction
+	domain rdfs:label string
+
+
+
