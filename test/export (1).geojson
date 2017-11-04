@@ -1,0 +1,350 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-ide",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2017-11-03T11:44:02Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/325076341",
+        "historic": "monument",
+        "loc_name": "La llama eterna",
+        "name": "Monumento a los Caídos por España",
+        "old_name": "Monumento a los Héroes del Dos de Mayo",
+        "wikidata": "Q3034186",
+        "wikipedia": "es:Monumento a los Caídos por España"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6928682,
+          40.416387
+        ]
+      },
+      "id": "node/325076341"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/559824224",
+        "addr:city": "Madrid",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Estatua de Carlos III",
+        "name:en": "Carlos III statue",
+        "name:zh_pinyin": "东方广场"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6907121,
+          40.4111512
+        ]
+      },
+      "id": "node/559824224"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/612997309",
+        "barrier": "gate",
+        "entrance": "main",
+        "historic": "monument",
+        "name": "Puerta de Murillo",
+        "name:zh": "植物园？",
+        "tourism": "attraction"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6919778,
+          40.412382
+        ]
+      },
+      "id": "node/612997309"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/910345795",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Estatua Federico García Lorca",
+        "wikidata": "Q24276060"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7004971,
+          40.4147407
+        ]
+      },
+      "id": "node/910345795"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/926177482",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Estatua Calderón de la Barca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7012384,
+          40.4146613
+        ]
+      },
+      "id": "node/926177482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/948429375",
+        "addr:city": "Madrid",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Estatua a Miguel de Cervantes Saavedra",
+        "name:zh": "米格爾·德賽凡提斯紀念碑"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6964683,
+          40.4157402
+        ]
+      },
+      "id": "node/948429375"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1591490972",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Monumento al general Martínez Campos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6809317,
+          40.4177921
+        ]
+      },
+      "id": "node/1591490972"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2045959797",
+        "addr:city": "Madrid",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Estatua de Velázquez",
+        "name:es": "Estatua de Velázquez",
+        "name:it": "Statua di Velázquez"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6926909,
+          40.4137278
+        ]
+      },
+      "id": "node/2045959797"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2045974223",
+        "addr:city": "Madrid",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Estatua de Goya",
+        "name:it": "Statua di agora",
+        "name:zh": "方尖碑？"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6925365,
+          40.414983
+        ]
+      },
+      "id": "node/2045974223"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2544271903",
+        "addr:city": "Madrid",
+        "addr:country": "ES",
+        "addr:postcode": "28007",
+        "addr:state": "ES",
+        "historic": "monument",
+        "name": "Monumento a Dante",
+        "wikidata": "Q6023007",
+        "wikipedia": "es:Monumento a Dante"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6777307,
+          40.4094757
+        ]
+      },
+      "id": "node/2544271903"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3166513037",
+        "addr:city": "Madrid",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Estatua de Murillo",
+        "name:zh": "巴托洛梅-埃斯特万-穆里略纪念碑"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6920327,
+          40.4126343
+        ]
+      },
+      "id": "node/3166513037"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3168768765",
+        "entrance": "no",
+        "historic": "monument",
+        "name": "Puerta del Rey",
+        "tourism": "attraction"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6922728,
+          40.4109552
+        ]
+      },
+      "id": "node/3168768765"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3262147397",
+        "historic": "monument",
+        "name": "Monumento a la Reina María Cristina de Borbón"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6904183,
+          40.4152434
+        ]
+      },
+      "id": "node/3262147397"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3584116919",
+        "historic": "monument",
+        "name": "Monumento a Galicia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6831822,
+          40.4198917
+        ]
+      },
+      "id": "node/3584116919"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4386346356",
+        "historic": "monument",
+        "name": "Dia de la raza"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6824544,
+          40.4175377
+        ]
+      },
+      "id": "node/4386346356"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4564922889",
+        "historic": "monument",
+        "name": "La puerta de Alcalá",
+        "name:es": "La puerta de Alcalá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6887104,
+          40.4199823
+        ]
+      },
+      "id": "node/4564922889"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4701248999",
+        "historic": "monument"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6934051,
+          40.4136384
+        ]
+      },
+      "id": "node/4701248999"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4758257145",
+        "historic": "monument",
+        "monument": "bust",
+        "name": "Miguel Moya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6793879,
+          40.4111859
+        ]
+      },
+      "id": "node/4758257145"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4927356521",
+        "historic": "monument"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6798909,
+          40.4164148
+        ]
+      },
+      "id": "node/4927356521"
+    }
+  ]
+}
