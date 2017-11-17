@@ -1,0 +1,17 @@
+[
+  {
+    "node":1,
+    "position":{"latitude":40.2222,"longitude":1.3444},
+    "conflicts":[[{"source":"OSM","name":"OSO"},{"source":"MAD","name":"FELIPE IV"}],[]]
+  },
+  {
+    "node":2,
+    "position":{"latitude":40.4187909,"longitude":-3.7113071},
+    "conflicts":[[{"source":"OSM","name":"José Cubiles"}],[]]
+  },
+  {
+    "node":3,
+    "position":{"latitude":40.4187909,"longitude":-3.7113071},
+    "conflicts":[[{"source":"OSM","latitude":"40.4130648"},{"source":"MAD","latitude":"40.413585"}],[{"source":"OSM","longitude":"-3.6991697"},{"source":"MAD","longitude":"-3.702042"}],[{"source":"OSM","inscription":"En esta casa nació el 12 de agosto de 1866 el autor teatral Jacinto Benavente, premio Nobel de Literatura"}]]
+  }
+]
