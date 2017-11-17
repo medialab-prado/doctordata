@@ -1,0 +1,2305 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-ide",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2017-11-17T12:17:02Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/48752947",
+        "addr:country": "ES",
+        "artwork_type": "statue",
+        "historic": "monument",
+        "name": "Estatua ecuestre de Felipe III",
+        "name:de": "Reiterstandbild von Philipp III",
+        "name:es": "Estatua ecuestre de Felipe III",
+        "name:it": "Statua equestre di Felipe III",
+        "name:ko": "마요르광장",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7073906,
+          40.4154017
+        ]
+      },
+      "id": "node/48752947"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/141678312",
+        "artist_name": "Pablo Serrano",
+        "artwork_type": "sculpture",
+        "name": "San Francisco Javier",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6912519,
+          40.4708682
+        ]
+      },
+      "id": "node/141678312"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/167301842",
+        "addr:country": "ES",
+        "artist_name": "Agustín Querol",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "name": "Monumento a Claudio Moyano",
+        "start_date": "1899",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6915086,
+          40.4093166
+        ]
+      },
+      "id": "node/167301842"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/167386578",
+        "addr:country": "ES",
+        "artist_name": "Jerónimo Suñol",
+        "artwork_type": "statue",
+        "historic": "monument",
+        "name": "Monumento a Cristóbal Colón",
+        "name:ja": "コロンブスの広場",
+        "tourism": "artwork",
+        "wheelchair": "no",
+        "wikidata": "Q2882441",
+        "wikipedia": "es:Monumento a Colón (Madrid)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6904605,
+          40.4252101
+        ]
+      },
+      "id": "node/167386578"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/178820936",
+        "addr:country": "ES",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "name": "Monumento a Álvaro de Bazán",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7104049,
+          40.4151202
+        ]
+      },
+      "id": "node/178820936"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/485099151",
+        "addr:country": "ES",
+        "artist_name": "Mario Irrazábal",
+        "artwork_type": "sculpture",
+        "name": "Dedos (Mario Irrazábal)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.608464,
+          40.4616347
+        ]
+      },
+      "id": "node/485099151"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/574661453",
+        "addr:country": "ES",
+        "artwork_type": "statue",
+        "description": "Punto de reunión.Antes estaba enfrente de la calle de El Carmen",
+        "name": "El Oso y el Madroño",
+        "name:es": "El Oso y el Madroño",
+        "name:zh": "攀樹的熊",
+        "tourism": "artwork",
+        "wheelchair": "yes",
+        "wheelchair:description": "On paved pedestrian area.",
+        "wikidata": "Q3887613"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7026182,
+          40.4170091
+        ]
+      },
+      "id": "node/574661453"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/574663652",
+        "addr:country": "ES",
+        "artwork_type": "statue",
+        "name": "Estatua de la Mariblanca",
+        "tourism": "artwork",
+        "wheelchair": "yes",
+        "wheelchair:description": "Pedestrian area with some cobbles.",
+        "wikidata": "Q5848893",
+        "wikipedia": "es:Estatua de la Mariblanca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7045528,
+          40.4168623
+        ]
+      },
+      "id": "node/574663652"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/622204610",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "layer": "1",
+        "name": "Don Quijote y Sancho Panza",
+        "name:ko": "스페인 광장",
+        "tourism": "artwork",
+        "wheelchair": "yes",
+        "wheelchair:description": "Step-free, paved path to foot of statue from both sides. Reflection in pond cannot be easily seen from a wheelchair."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7127023,
+          40.4231288
+        ]
+      },
+      "id": "node/622204610"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/622204628",
+        "historic": "wayside_cross",
+        "name": "Cruceiro Gallego",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7034702,
+          40.4146957
+        ]
+      },
+      "id": "node/622204628"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/623776661",
+        "addr:country": "ES",
+        "artwork_type": "statue",
+        "height": "10",
+        "min_height": "5",
+        "name": "Felipe IV",
+        "name:ru": "паркинг",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7122002,
+          40.4183306
+        ]
+      },
+      "id": "node/623776661"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/926177474",
+        "addr:country": "ES",
+        "artwork_type": "bust",
+        "name": "Maestro Alonso",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6998875,
+          40.4175563
+        ]
+      },
+      "id": "node/926177474"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/929294348",
+        "addr:city": "Madrid",
+        "addr:country": "ES",
+        "artist_name": "Mariano Benlliure",
+        "memorial": "statue",
+        "name": "Estatua a Jacinto Ruiz Teniente de Infantería",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6958263,
+          40.4203737
+        ]
+      },
+      "id": "node/929294348"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/929335628",
+        "addr:country": "ES",
+        "artist_name": "Dalí",
+        "artwork_type": "sculpture",
+        "name": "Escultura y Dolmen de Dalí",
+        "tourism": "artwork",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6734289,
+          40.4239065
+        ]
+      },
+      "id": "node/929335628"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/937649665",
+        "addr:country": "ES",
+        "artwork_type": "statue",
+        "name": "Monumento al pintor Eduardo Rosales",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7221373,
+          40.4290261
+        ]
+      },
+      "id": "node/937649665"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/958170258",
+        "addr:country": "ES",
+        "historic": "monument",
+        "name": "Cubos",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7131106,
+          40.4251002
+        ]
+      },
+      "id": "node/958170258"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1180100758",
+        "addr:country": "ES",
+        "artwork_type": "statue",
+        "name": "Eloy Gonzalo",
+        "name:es": "El rastro. Barrio madrid",
+        "name:ru": "Блошиный Рынок",
+        "tourism": "artwork",
+        "wikidata": "Q24275932"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7072835,
+          40.4102391
+        ]
+      },
+      "id": "node/1180100758"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1360319604",
+        "man_made": "obelisk",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7145796,
+          40.4009053
+        ]
+      },
+      "id": "node/1360319604"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1360319898",
+        "man_made": "obelisk",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7141704,
+          40.4007954
+        ]
+      },
+      "id": "node/1360319898"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1435994147",
+        "designation": "Joaquín Vaquero Turcios, 1996",
+        "name": "Goya",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7248768,
+          40.426654
+        ]
+      },
+      "id": "node/1435994147"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1517405741",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6935566,
+          40.4087298
+        ]
+      },
+      "id": "node/1517405741"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1517405749",
+        "artist_name": "Rafael González García",
+        "artwork_type": "statue",
+        "start_date": "1996",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7021506,
+          40.4240466
+        ]
+      },
+      "id": "node/1517405749"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1517405752",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "name": "Monumento a Daoíz y Velarde",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.704074,
+          40.4269348
+        ]
+      },
+      "id": "node/1517405752"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1591492530",
+        "addr:country": "ES",
+        "artwork_type": "sculpture",
+        "historic": "memorial",
+        "name": "Monumento a los Hermanos Álvarez Quintero",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.682085,
+          40.4196176
+        ]
+      },
+      "id": "node/1591492530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1706373957",
+        "addr:country": "ES",
+        "artwork_type": "statue",
+        "name": "Monumento a Francisco de Goya",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7260046,
+          40.4250602
+        ]
+      },
+      "id": "node/1706373957"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1736603589",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6932486,
+          40.3612861
+        ]
+      },
+      "id": "node/1736603589"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2141725530",
+        "addr:housenumber": "24",
+        "addr:postcode": "28015",
+        "addr:street": "Calle de Gaztambide",
+        "designation": "ceramic studio",
+        "name": "Lumbre y Barro",
+        "shop": "gift",
+        "tourism": "artwork",
+        "website": "www.lumbreybarro.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7154943,
+          40.4337742
+        ]
+      },
+      "id": "node/2141725530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2523536683",
+        "artwork_type": "statue",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7279001,
+          40.4232608
+        ]
+      },
+      "id": "node/2523536683"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2542611456",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6707211,
+          40.4717242
+        ]
+      },
+      "id": "node/2542611456"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2632691195",
+        "artwork_type": "sculpture",
+        "name": "Monumento a Calvo Sotelo",
+        "tourism": "artwork",
+        "wikidata": "Q6022971"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6894163,
+          40.4651949
+        ]
+      },
+      "id": "node/2632691195"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2667468715",
+        "artist_name": "Antonio López",
+        "artwork_type": "sculpture",
+        "name": "Día y Noche",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6888019,
+          40.4062481
+        ]
+      },
+      "id": "node/2667468715"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2671594358",
+        "artist_name": "Andrés Aleu y Teixidor",
+        "historic": "memorial",
+        "name": "Estatua del Marqués del Duero",
+        "start_date": "1885",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6906957,
+          40.4380057
+        ]
+      },
+      "id": "node/2671594358"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2835701302",
+        "artwork_type": "sculpture",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6951229,
+          40.3910857
+        ]
+      },
+      "id": "node/2835701302"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2880414796",
+        "name": "Hypercube",
+        "tourism": "artwork",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7024759,
+          40.4596276
+        ]
+      },
+      "id": "node/2880414796"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2971949909",
+        "artist_name": "Humberto Peraza",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "name": "Estatua Agustín Lara",
+        "start_date": "1975",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7035185,
+          40.4080585
+        ]
+      },
+      "id": "node/2971949909"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3096525832",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "name": "Estatua a Bravo Murillo",
+        "source": "survey",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7038918,
+          40.4388882
+        ]
+      },
+      "id": "node/3096525832"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3263684449",
+        "artist_name": "Antonio López",
+        "artwork_type": "sculpture",
+        "name": "Día y Noche",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6885995,
+          40.4063
+        ]
+      },
+      "id": "node/3263684449"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3269790737",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "name": "Hércules y Yolao luchando con la Hidra de Lerna",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6791499,
+          40.4121633
+        ]
+      },
+      "id": "node/3269790737"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3274328460",
+        "artwork_type": "sculpture",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6807455,
+          40.4140546
+        ]
+      },
+      "id": "node/3274328460"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3275673361",
+        "artwork_type": "sculpture",
+        "name": "Isabel II",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.709578,
+          40.4181638
+        ]
+      },
+      "id": "node/3275673361"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3279568931",
+        "addr:country": "ES",
+        "artist_name": "Fernando Botero",
+        "artwork_type": "sculpture",
+        "historic": "monument",
+        "name": "La Mano Gorda;Escultura Fernando Botero",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6916332,
+          40.4409826
+        ]
+      },
+      "id": "node/3279568931"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3325123702",
+        "artist_name": "Luis Sanguino",
+        "artwork_type": "sculpture",
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Manuel Rodríguez \"Manolete\"",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6170478,
+          40.443852
+        ]
+      },
+      "id": "node/3325123702"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3347797360",
+        "artwork_type": "sculpture",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6309688,
+          40.4682523
+        ]
+      },
+      "id": "node/3347797360"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376381391",
+        "artist_name": "Yolanda D' Ausburg",
+        "artwork_type": "sculpture",
+        "name": "18. Monumento a la Paz (Yolanda D'Ausburg)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6140792,
+          40.4601965
+        ]
+      },
+      "id": "node/3376381391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376381392",
+        "artist_name": "Jorge Du Bon",
+        "artwork_type": "sculpture",
+        "name": "2. Viga (Jorge Du Bon)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6136955,
+          40.4616148
+        ]
+      },
+      "id": "node/3376381392"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376384308",
+        "artist_name": "Leopoldo Maler",
+        "artwork_type": "sculpture",
+        "name": "11. Los cantos de la encrucijada (Leopoldo Maler)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6073445,
+          40.458756
+        ]
+      },
+      "id": "node/3376384308"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376384309",
+        "artist_name": "A. Casillas - M. Ga. Cornejo",
+        "artwork_type": "sculpture",
+        "name": "12. Espacio México (A. Casillas - M. Ga. Cornejo)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6068459,
+          40.4593128
+        ]
+      },
+      "id": "node/3376384309"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376385393",
+        "artist_name": "Miguel Berrocal",
+        "artwork_type": "sculpture",
+        "name": "3. Manolona Opus 397 (Miguel Berrocal)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.612406,
+          40.4627517
+        ]
+      },
+      "id": "node/3376385393"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376385394",
+        "artist_name": "Mustafa Arruf",
+        "artwork_type": "sculpture",
+        "name": "4. Encuentros (Mustafa Arruf)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6117738,
+          40.4635632
+        ]
+      },
+      "id": "node/3376385394"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376385656",
+        "artwork_type": "sculpture",
+        "historic": "monument",
+        "name": "10. Sin título (Dani Karavan)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6099386,
+          40.4612466
+        ]
+      },
+      "id": "node/3376385656"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376393577",
+        "artist_name": "Michael Warren",
+        "artwork_type": "sculpture",
+        "name": "13. Viaje interior (Michael Warren)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6031324,
+          40.4609784
+        ]
+      },
+      "id": "node/3376393577"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376393578",
+        "artist_name": "Paul Van Hoeydonck",
+        "artwork_type": "sculpture",
+        "name": "15. Eolos (Paul Van Hoeydonck)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6023827,
+          40.4588026
+        ]
+      },
+      "id": "node/3376393578"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376393579",
+        "artist_name": "Jorge Castillo",
+        "artwork_type": "sculpture",
+        "name": "17. Paseo entre dos árboles (Jorge Castillo)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6103097,
+          40.4576021
+        ]
+      },
+      "id": "node/3376393579"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3376393580",
+        "artist_name": "Carlos Cruz Díez",
+        "artwork_type": "sculpture",
+        "name": "5. Fisocromía para Madrid (Carlos Cruz Díez)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6096552,
+          40.4637201
+        ]
+      },
+      "id": "node/3376393580"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3383384925",
+        "artist_name": "Juan Ramón Poblador",
+        "artwork_type": "statue",
+        "name": "El Oso y el Madroño",
+        "source": "survey",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6747028,
+          40.4440006
+        ]
+      },
+      "id": "node/3383384925"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3387709995",
+        "artwork_type": "sculpture",
+        "name": "Holocausto (Samuel Nahón)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6059794,
+          40.4636685
+        ]
+      },
+      "id": "node/3387709995"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3391339461",
+        "name": "Ludwig van Beethoven",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6761191,
+          40.4506928
+        ]
+      },
+      "id": "node/3391339461"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3391402711",
+        "name": "Pablo Sorozábal",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6786754,
+          40.4456095
+        ]
+      },
+      "id": "node/3391402711"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3427370208",
+        "name": "Sputnik",
+        "name:es": "Sputnik",
+        "name:ru": "Спутник",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6827074,
+          40.4449776
+        ]
+      },
+      "id": "node/3427370208"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3501291711",
+        "artwork_type": "statue",
+        "name": "Sor Juana Inés de la Cruz",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7155474,
+          40.4234134
+        ]
+      },
+      "id": "node/3501291711"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3627089875",
+        "artwork_type": "statue",
+        "name": "El Barrendero",
+        "source:name": "local knowledge",
+        "tourism": "artwork",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7035004,
+          40.4145805
+        ]
+      },
+      "id": "node/3627089875"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3627235203",
+        "artwork_type": "sculpture",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7399024,
+          40.3631295
+        ]
+      },
+      "id": "node/3627235203"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3721724822",
+        "artwork_type": "mural",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7025637,
+          40.462969
+        ]
+      },
+      "id": "node/3721724822"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3721724823",
+        "artwork_type": "mural",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7025023,
+          40.4630569
+        ]
+      },
+      "id": "node/3721724823"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3721724928",
+        "artwork_type": "mural",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7042068,
+          40.463846
+        ]
+      },
+      "id": "node/3721724928"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3721724929",
+        "artwork_type": "mural",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.70431,
+          40.463886
+        ]
+      },
+      "id": "node/3721724929"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3722865313",
+        "artwork_type": "mural",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7052924,
+          40.4645402
+        ]
+      },
+      "id": "node/3722865313"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3748228573",
+        "artwork_type": "sculpture",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7023949,
+          40.480461
+        ]
+      },
+      "id": "node/3748228573"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3771908450",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "name": "Monumento a Pío Baroja",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6890671,
+          40.409693
+        ]
+      },
+      "id": "node/3771908450"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3774807079",
+        "artwork_type": "statue",
+        "name": "Ángeles Rodríguez Hidalgo «La abuela rockera»",
+        "tourism": "artwork",
+        "website": "wikivallecas.wikispaces.com/Estatua+Abuela+Rockera"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6663562,
+          40.3952809
+        ]
+      },
+      "id": "node/3774807079"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3780719976",
+        "artwork_type": "graffiti",
+        "name": "Muro de la Paz",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.702984,
+          40.418987
+        ]
+      },
+      "id": "node/3780719976"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3786293157",
+        "artwork_type": "statue",
+        "name": "Celia Gamez",
+        "source": "https://vestigiosdemadrid.wordpress.com/2012/12/30/una-escultura-desafortunada-para-la-gran-vedette-de-la-posguerra-celia-gamez/",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7152819,
+          40.412429
+        ]
+      },
+      "id": "node/3786293157"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3788111564",
+        "artwork_type": "statue",
+        "memorial": "statue",
+        "name": "Antonio Machado",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7193951,
+          40.4687453
+        ]
+      },
+      "id": "node/3788111564"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3888952211",
+        "artwork_type": "sculpture",
+        "loc_name": "Los Arcos",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7051042,
+          40.4819354
+        ]
+      },
+      "id": "node/3888952211"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3927640952",
+        "artist_name": "Mariano Benlliure",
+        "artwork_type": "statue",
+        "name": "Bárbara de Braganza",
+        "tourism": "artwork",
+        "website": "http://www.monumentamadrid.es/AM_Monumentos5/AM_Monumentos5_WEB/index.htm#mon1.8012",
+        "wikidata": "Q32417460"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6926988,
+          40.4252094
+        ]
+      },
+      "id": "node/3927640952"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3927640953",
+        "artist_name": "Giovanni Domenico Olivieri",
+        "artwork_type": "statue",
+        "name": "Fernando VI",
+        "tourism": "artwork",
+        "website": "http://www.monumentamadrid.es/AM_Monumentos5/AM_Monumentos5_WEB/index.htm#mon1.8027"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6934556,
+          40.4253581
+        ]
+      },
+      "id": "node/3927640953"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3999793520",
+        "artwork_type": "sculpture",
+        "name": "Tetraedro",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7105897,
+          40.4026184
+        ]
+      },
+      "id": "node/3999793520"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4125460796",
+        "amenity": "fountain",
+        "artwork_type": "sculpture",
+        "layer": "1",
+        "name:es": "Monumento a Cervantes",
+        "name:zh": "西班牙广场",
+        "tourism": "artwork",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7125333,
+          40.4232254
+        ]
+      },
+      "id": "node/4125460796"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4153433990",
+        "artist_name": "Fernando Botero",
+        "artwork_type": "sculpture",
+        "name": "El rapto de Europa (Fernando Botero)",
+        "name:en": "Europcar",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.5708142,
+          40.464108
+        ]
+      },
+      "id": "node/4153433990"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4215714604",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "name": "José Cubero \"Yiyo\"",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6117037,
+          40.4418785
+        ]
+      },
+      "id": "node/4215714604"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4217907945",
+        "artist_name": "Fernando Botero",
+        "artwork_type": "sculpture",
+        "historic": "monument",
+        "name": "La Mujer con Espejo",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6910735,
+          40.4253695
+        ]
+      },
+      "id": "node/4217907945"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4226827313",
+        "artwork_type": "sculpture",
+        "name": "My Skyhole Madrid (Bukichi Inoue)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.5975887,
+          40.4609289
+        ]
+      },
+      "id": "node/4226827313"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4226827314",
+        "artwork_type": "sculpture",
+        "name": "Pasaje Azul (Alexandru C. Arghira)",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6059586,
+          40.4655353
+        ]
+      },
+      "id": "node/4226827314"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4257924404",
+        "artwork_type": "sculpture",
+        "name": "Icosaedro",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.70487,
+          40.4009825
+        ]
+      },
+      "id": "node/4257924404"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4331376540",
+        "artwork_type": "statue",
+        "name": "Alfonso VIII",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7139056,
+          40.4198773
+        ]
+      },
+      "id": "node/4331376540"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4331376560",
+        "artwork_type": "statue",
+        "name": "Fernando V, El Católico",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.714239,
+          40.4198979
+        ]
+      },
+      "id": "node/4331376560"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4331376598",
+        "artwork_type": "statue",
+        "name": "Jaime I El Conquistador",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7138868,
+          40.4200539
+        ]
+      },
+      "id": "node/4331376598"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4331376615",
+        "artwork_type": "statue",
+        "name": "Isabel la Católica",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7142199,
+          40.4200768
+        ]
+      },
+      "id": "node/4331376615"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4331376740",
+        "artwork_type": "statue",
+        "name": "Alfonso X El Sabio",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7138723,
+          40.4201902
+        ]
+      },
+      "id": "node/4331376740"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4331376760",
+        "artwork_type": "statue",
+        "name": "Fernando III El Santo",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7142054,
+          40.4202131
+        ]
+      },
+      "id": "node/4331376760"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4384317858",
+        "artist_name": "Rafael Vela del Castillo",
+        "artwork_type": "statue",
+        "name": "Tirso de Molina",
+        "start_date": "1943",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7041867,
+          40.4123692
+        ]
+      },
+      "id": "node/4384317858"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4390454907",
+        "name": "Adhesión de España a las Comunidades Europeas",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7060271,
+          40.4149176
+        ]
+      },
+      "id": "node/4390454907"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4413777421",
+        "addr:city": "Madrid",
+        "addr:district": "Salamanca",
+        "addr:housenumber": "40",
+        "addr:postcode": "28046",
+        "addr:province": "Madrid",
+        "addr:street": "Paseo de la Castellana",
+        "addr:suburb": "Castellana",
+        "email": "paisajeypatrimonio@madrid.es",
+        "name": "Arte Público (Museo al Aire Libre de la Castellana)",
+        "source": "Ayuntamiento de Madrid",
+        "tourism": "artwork",
+        "url": "http://www.madrid.es/vgn-ext-templating/v/index.jsp?vgnextchannel=9e4c43db40317010VgnVCM100000dc0ca8c0RCRD&vgnextoid=eca9ef4d7f71c010VgnVCM1000000b205a0aRCRD",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6876122,
+          40.4332193
+        ]
+      },
+      "id": "node/4413777421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4439959638",
+        "alt_name": "La caridad se compadece de los pobres",
+        "artist_name": "Viktor Tilgner",
+        "artwork_type": "statue",
+        "name": "La protección de la orfandad y la viudez",
+        "name:en": "Charity being kind to the poor",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7083525,
+          40.4065936
+        ]
+      },
+      "id": "node/4439959638"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4471142287",
+        "artist_name": "Eduardo Chillida",
+        "artwork_type": "sculpture",
+        "name": "Lugar de encuentros",
+        "source:name": "https://artedemadrid.wordpress.com/2009/09/02/chillida-en-madrid-lugar-de-encuentros/",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6965919,
+          40.4203352
+        ]
+      },
+      "id": "node/4471142287"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4471308613",
+        "artwork_type": "sculpture",
+        "name": "Homenaje a Galileo",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6022888,
+          40.4630228
+        ]
+      },
+      "id": "node/4471308613"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497804743",
+        "artist_name": "Pedro Quesada",
+        "artwork_type": "statue",
+        "name": "La Mensajera",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.781755,
+          40.4586928
+        ]
+      },
+      "id": "node/4497804743"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497804763",
+        "artist_name": "Lucía Antonini",
+        "artwork_type": "statue",
+        "name": "El Buzón de Palabras",
+        "start_date": "2005",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7411687,
+          40.3806018
+        ]
+      },
+      "id": "node/4497804763"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4497804813",
+        "artist_name": "Antonio Santín",
+        "artwork_type": "statue",
+        "name": "Tras Julia",
+        "tourism": "artwork",
+        "wikidata": "Q27105728"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7071873,
+          40.424349
+        ]
+      },
+      "id": "node/4497804813"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4503133289",
+        "artist_name": "Emilio Laíz Campos",
+        "artwork_type": "statue",
+        "name": "Dr. Antonio de Andrés Martínez",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6056728,
+          40.4021809
+        ]
+      },
+      "id": "node/4503133289"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4556079408",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6113441,
+          40.4219677
+        ]
+      },
+      "id": "node/4556079408"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621788745",
+        "artwork_type": "statue",
+        "name": "Fernando IV",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6882163,
+          40.4167765
+        ]
+      },
+      "id": "node/4621788745"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621795351",
+        "artwork_type": "statue",
+        "name": "D. Enrique II",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6873635,
+          40.4168433
+        ]
+      },
+      "id": "node/4621795351"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621796129",
+        "artwork_type": "statue",
+        "name": "D. Sancho IV",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6878135,
+          40.4167909
+        ]
+      },
+      "id": "node/4621796129"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621798316",
+        "artwork_type": "statue",
+        "name": "D. García",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6868665,
+          40.4168699
+        ]
+      },
+      "id": "node/4621798316"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621799685",
+        "artwork_type": "statue",
+        "name": "Dña. Urraca",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6864097,
+          40.4169039
+        ]
+      },
+      "id": "node/4621799685"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621801073",
+        "artwork_type": "statue",
+        "name": "Dña. Berenguela",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6859412,
+          40.4169398
+        ]
+      },
+      "id": "node/4621801073"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621803552",
+        "artwork_type": "statue",
+        "name": "D. Chintila",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6863712,
+          40.4167527
+        ]
+      },
+      "id": "node/4621803552"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621804545",
+        "artwork_type": "statue",
+        "name": "Sancho IV",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6855139,
+          40.4168071
+        ]
+      },
+      "id": "node/4621804545"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621807626",
+        "artwork_type": "statue",
+        "name": "Ramon Berenguer IV",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6868514,
+          40.4167078
+        ]
+      },
+      "id": "node/4621807626"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621809435",
+        "artwork_type": "statue",
+        "name": "D. Carlos II",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6873362,
+          40.416682
+        ]
+      },
+      "id": "node/4621809435"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621814071",
+        "artwork_type": "statue",
+        "name": "Carlos I y V de Alemania",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.687797,
+          40.4166477
+        ]
+      },
+      "id": "node/4621814071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4621815222",
+        "artwork_type": "statue",
+        "name": "Gundemaro",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6882341,
+          40.4166219
+        ]
+      },
+      "id": "node/4621815222"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4629703845",
+        "artwork_type": "sculpture",
+        "name": "Escultura metálica de árbol",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6741956,
+          40.4239647
+        ]
+      },
+      "id": "node/4629703845"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4642820731",
+        "artwork_type": "statue",
+        "name": "Agustín de Argüelles",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7168491,
+          40.4253941
+        ]
+      },
+      "id": "node/4642820731"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4665343527",
+        "artist_name": "Ripollés",
+        "artwork_type": "sculpture",
+        "name": "20. Niño Sol",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6017566,
+          40.4571006
+        ]
+      },
+      "id": "node/4665343527"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4675280667",
+        "artwork_type": "statue",
+        "name": "Alonso I",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6859204,
+          40.4167955
+        ]
+      },
+      "id": "node/4675280667"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4684277019",
+        "artwork_type": "statue",
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Juan Domingo Perón",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6952906,
+          40.4525785
+        ]
+      },
+      "id": "node/4684277019"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4736511924",
+        "artwork_type": "bust",
+        "name": "Jean Jaques Rousseau",
+        "tourism": "artwork",
+        "wheelchair": "limited",
+        "wheelchair:description": "Uneven low step on North East side of square, several steps from all other sides. [Snap 1718 to add]"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6943893,
+          40.424367
+        ]
+      },
+      "id": "node/4736511924"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4748826506",
+        "artwork_type": "statue",
+        "name": "Felipe II",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7142456,
+          40.4197238
+        ]
+      },
+      "id": "node/4748826506"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4748826507",
+        "artwork_type": "statue",
+        "name": "Alfonso VI",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.713935,
+          40.4197114
+        ]
+      },
+      "id": "node/4748826507"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4841764427",
+        "artwork_type": "statue",
+        "name": "Estatua de Saturno",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.5971259,
+          40.4577305
+        ]
+      },
+      "id": "node/4841764427"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4893380422",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6825785,
+          40.4274687
+        ]
+      },
+      "id": "node/4893380422"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4904777753",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6233225,
+          40.4314609
+        ]
+      },
+      "id": "node/4904777753"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4957311724",
+        "artwork_type": "sculpture",
+        "name": "Octaedro",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6998818,
+          40.4012255
+        ]
+      },
+      "id": "node/4957311724"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4982599250",
+        "artwork_type": "sculpture",
+        "name": "Hexaedro",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7160581,
+          40.4045367
+        ]
+      },
+      "id": "node/4982599250"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4982599251",
+        "artwork_type": "sculpture",
+        "name": "Dodecaedro",
+        "tourism": "artwork"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.719303,
+          40.4083645
+        ]
+      },
+      "id": "node/4982599251"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5030498705",
+        "alt_name": "Cabeza de Ariadna",
+        "artist_name": "Manolo Valdés",
+        "artwork_type": "sculpture",
+        "name": "La Dama del Manzanares",
+        "tourism": "artwork",
+        "wikidata": "Q5963163",
+        "wikipedia": "es:La Dama del Manzanares"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6865679,
+          40.3776916
+        ]
+      },
+      "id": "node/5030498705"
+    }
+  ]
+}
