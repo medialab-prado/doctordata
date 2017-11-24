@@ -67,7 +67,7 @@
                                   'map',
                                   {center: [40.4168,-3.7038],
                                   zoom: 11,
-                                  maxZoom: 18,
+                                  maxZoom: 19,
                                   maxBounds: bounds,
                                   layers: [],
                                   worldCopyJump: false,
@@ -81,7 +81,7 @@
                 {
                     "attribution": null,
                     "detectRetina": false,
-                    "maxZoom": 18,
+                    "maxZoom": 19,
                     "minZoom": 1,
                     "noWrap": false,
                     "subdomains": "abc"
@@ -89,7 +89,9 @@
 
 
             var marker_cluster = L.markerClusterGroup({
-                disableClusteringAtZoom: 18
+                disableClusteringAtZoom: 16,
+                spiderfyOnMaxZoom: false,
+                maxClusterRadius: 100
             });
             map.addLayer(marker_cluster);
 
