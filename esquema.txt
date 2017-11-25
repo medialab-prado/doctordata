@@ -7,7 +7,7 @@
 			id	#Objeto completo según id
 		farolas/ # LIsta completa de monumentos
 	doctordata/
-		conflicts/
+		conflicts/[monumentos, fuentes, farolas, ]
 			# Devuelve:
 				{
 					{
