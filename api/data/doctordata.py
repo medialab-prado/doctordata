@@ -79,7 +79,7 @@ def getDistance_meters(x,y):
 
 print('Opening files and ensuring naming convention...')
 os.chdir('/Volumes/MacintoshHD/_GitHub/doctordata/api/data/')
-indice = pd.read_csv('indice.csv',index_col=0,encoding='latin-1',delimiter=';')
+indice = pd.read_csv('indice.csv',encoding='latin-1',delimiter=';',index_col=0)
 
 results = {}
 for key, df_gb in indice.groupby(indice.index):
@@ -91,17 +91,16 @@ for key in results.keys():
     results[key]['distance_SAME'] = results[key]['distance_SAME'][0]
     results[key]['palabra'] = results[key]['palabra'][0]
 
-AYU_fichero = '20171110_InventarioFuentes.csv'
+AYU_fichero = '20171110-InventarioFuentes.csv'
 
 try:
     if (first_arg != '-f'):
         AYU_fichero = first_arg
 except:
     pass
-
 fichero = []
 for key in results.keys():
-    if AYU_fichero.split('_')[1][:-4] == results[key]['palabra']:
+    if AYU_fichero.split('-')[1][:-4] == results[key]['palabra']:
         fichero = key
 
 search = 'area["name"="Madrid"];node(area)['+results[fichero]['SEARCH']+'];'
@@ -127,14 +126,20 @@ AYU = pd.read_csv(AYU_fichero, encoding='latin-1', delimiter=';',index_col=0, de
 AYU.columns = [x.upper() for x in AYU.columns.values]
 
 print('Total MAD entities found: ', str(AYU.count().max()))
-if AYU_fichero == '20171110_InventarioFuentes.csv':
+
+if AYU_fichero == '20171110-InventarioFuentes.csv':
+    results[fichero]['DOCTORDATA'][1:]
+    AYU.columns
     AYU.columns = results[fichero]['DOCTORDATA'][1:]
+    results[fichero]['DOCTORDATA'][1:]
 
 try:
     AYU = AYU[AYU.LATITUD != 'Error']
     AYU = AYU[AYU.LONGITUD != 'Error']
 except:
     print('No errors!')
+
+
 
 AYU = AYU.sort_values('LATITUD')
 AYU['id_OSM'] = pd.Series()
@@ -143,8 +148,8 @@ AYU['lon_OSM'] = pd.Series()
 AYU['coord_OSM'] = pd.Series()
 AYU['name_OSM'] = pd.Series()
 AYU['score_OSM'] = pd.Series()
-AYU['X_ETRS89'] = AYU['X_ETRS89'].apply(lambda x: float(x.replace(',','.')))
-AYU['Y_ETRS89'] = AYU['Y_ETRS89'].apply(lambda x: float(x.replace(',','.')))
+#AYU['X_ETRS89'] = AYU['X_ETRS89'].apply(lambda x: float(x.replace(',','.')))
+#AYU['Y_ETRS89'] = AYU['Y_ETRS89'].apply(lambda x: float(x.replace(',','.')))
 AYU['coord'] = list(zip(AYU.LATITUD, AYU.LONGITUD))
 #AYU = AYU[:200]
 
