@@ -47,11 +47,13 @@
       <div class="col-md-8">
             <div class="folium-map" id="map" ></div>
       </div>
-      <div class="col-md-4 lateral">
+      <div id = "datasets_container" class="col-md-4 lateral">
         <p style="color:white">Datasets disponibles</p>
+        <!--
         <label class="checkbox-inline"><input class ="datasets" type="checkbox" value="monumentos">Monumentos</label>
         <label class="checkbox-inline"><input id ="fonts" class ="datasets" type="checkbox" value="fuentes">Fuentes</label>
         <label class="checkbox-inline"><input class ="datasets" type="checkbox" value="farolas">Farolas</label>
+        -->
       </div>
 </div>
 
@@ -78,7 +80,7 @@
 
             var bounds = null;
 
- var latitude_param = getUrlParameter('latitude');
+            var latitude_param = getUrlParameter('latitude');
             var longitude_param = getUrlParameter('longitude');
             var zoom_param = getUrlParameter('zoom');
             var dataset_param = getUrlParameter('dataset');
@@ -147,9 +149,13 @@
                     extraClasses: 'fa-rotate-0'
             });
 
+            $.getJSON("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/indice.json", function(json) {
+                for (dataset_index in json){
+                    $('#datasets_container').append("<label class=\"checkbox-inline\"><input id=\""+json[dataset_index]['dataset']+"\" class =\"datasets\" type=\"checkbox\" value=\""+json[dataset_index]['dataset']+"\">"+json[dataset_index]['name']+"</label>");   
+                }
+            });
 
-
-            $('#fonts').click(function() {
+            $('#fuentes').click(function() {
                 if ($(this).is(':checked')) {
                   //console.log($(this).val());
                   $.getJSON("https://raw.githubusercontent.com/medialab-prado/doctordata/master/examples/test-fuentes-close.json", function(json) {
@@ -201,6 +207,8 @@
                 console.log("Click");
                $('#fonts').trigger("click");
             }
+            
+            
 
 
 </script>
