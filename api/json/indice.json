@@ -1,0 +1,12 @@
+[
+  {
+    "file":"20170614_BANCOS-edit.json",
+    "dataset":"bancos",
+    "name":"Bancos"
+  },
+  {
+    "file":"20171110_InventarioFuentes-edit.json",
+    "dataset":"fuentes",
+    "name":"Fuentes"
+  }
+]

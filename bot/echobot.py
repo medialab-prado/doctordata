@@ -6,9 +6,11 @@ import os
 import pandas as pd
 import random
 from geopy.distance import great_circle
+from telegram import keyboardbutton, ReplyKeyboardMarkup
 
 TOKEN = "497980376:AAGVpWuIksVtHUVJVvn0Gi4mcPbdyR873z0"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+DDURL = "https://medialab-prado.github.io/doctordata/index.html"
 
 location_test = {'latitude':40.4523, 'longitude': -3.7896}
 
@@ -115,6 +117,9 @@ def handle_updates(updates):
                 keyboard = build_keyboard(['Comenzamos!','Reto del día','Más info','Salir'])
                 send_message("Hola {}, soy DoctorData, tu bot colaborativo para mejorar entre todos los datos abiertos de la web del ayuntamiento de Madrid.".format(first_name), chat, keyboard)
 
+            if text == "/doctordata":
+                send_message(DDURL+'?dataset=fuentes&latitude=40.35&longitude=-3.78&zoom=18'.format(chat),chat)
+
             if text == 'Hola' or text == 'hola':
                 keyboard = build_keyboard(['Comenzamos!','Reto del día','Más info','Salir'])
                 send_message('Hola, dime qué te apetece hoy.',chat, keyboard)
@@ -137,13 +142,19 @@ def handle_updates(updates):
                 send_message("Con tu colaboración hacemos mejor la información pública de nuestra ciudad y ayudamos/exigimos a la administración a mejorar.", chat, keyboard)
                 send_message("Ni que decir tiene que toda la información recopilada se trata de forma totalmente anónima y en cualquier momento puedes dirigirte a nosotros para borrarla o si quieres más info.", chat, keyboard)
                 send_message("Rai y Esteban. Equipo de DoctorData", chat, keyboard)
+                send_message("https://medialab-prado.github.io/doctordata/",chat, keyboard)
 
             if text == 'Exit' or text == 'Salir':
                 keyboard = build_keyboard(['Comenzamos de nuevo!','Más info','Salir'])
                 send_message("Gracias por usar este servicio. Recuerda que estaré por aquí para cuando quieras jugar!", chat, keyboard)
 
             if text == 'Comenzamos!' or text == 'Comenzamos de nuevo!':
+                #location_keyboard = keyboardbutton(text='Send location', request_location = True)
+                #reply_keyboard = [[location_keyboard]]
+                #custom_keyboard = [[location_keyboard]]
+
                 keyboard = build_keyboard(['Reto del día','Uno cercano a mi última ubicación','Uno al azar','Salir'])
+                #keyboard = build_keyboard_location(['Enviar ubicación'])
                 send_message("Necesito que me envíes tu ubicación. Así podré buscarte retos cercanos. Si no quieres compartir tu ubicación puedes elegir Uno al azar con los botones de abajo.", chat, keyboard)
 
             if text == 'Sí, existe':
@@ -168,14 +179,19 @@ def handle_updates(updates):
                 send_message("Vaya... he metido la pata seguro...", chat, keyboard)
 
             if text == 'Otro' or text =='Otro cercano' or text == 'Uno cercano a mi última ubicación':
-                datos = pd.read_csv(str(chat)+'.csv')
-                datos.count()['id_OSM']
-                random.randint(0,25)
-                test = datos.loc[random.randint(0, datos.count()['id_OSM']-1)]
-                location = {'latitude':test['latitude'],'longitude':test['longitude'],'type':test['bot']}
-                keyboard = build_keyboard(['Sí, existe','No, no existe','Otro cercano','Salir'])
-                send_message('Ahí va! Del dataset {}s. ¿Está ahí?'.format(location['type']),chat, keyboard)
-                send_location(location, chat, date)
+                try:
+                    datos = pd.read_csv(str(chat)+'.csv')
+                    datos.count()['id_OSM']
+                    random.randint(0,25)
+                    test = datos.loc[random.randint(0, datos.count()['id_OSM']-1)]
+                    location = {'latitude':test['latitude'],'longitude':test['longitude'],'type':test['bot']}
+                    keyboard = build_keyboard(['Sí, existe','No, no existe','Otro cercano','Salir'])
+                    send_message('Ahí va! Del dataset {}s. ¿Está ahí?'.format(location['type']),chat, keyboard)
+                    send_location(location, chat, date)
+                except:
+                    keyboard = build_keyboard(['Comenzamos de nuevo!','Más info','Salir'])
+                    send_message("No tengo ninguna ubicación tuya aún..",chat, keyboard)
+
 
             if text == 'Uno al azar':
                 keyboard = build_keyboard(['Sí, existe','No, no existe','Otro al azar','Otro cercano','Salir'])
@@ -209,6 +225,11 @@ def handle_updates(updates):
 def build_keyboard(items):
     keyboard = [[item] for item in items]
     reply_markup = {"keyboard":keyboard, "one_time_keyboard": True}
+    return json.dumps(reply_markup)
+
+def build_keyboard_location(items):
+    keyboard = [[item] for item in items]
+    reply_markup = {"keyboard":keyboard, "one_time_keyboard": True, "request_location":True}
     return json.dumps(reply_markup)
 
 def get_close_test(location,data, chat_id,random_opt = False):

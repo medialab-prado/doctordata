@@ -80,3 +80,21 @@
 {"date": 1511818190, "chat": 446512413, "location": {"latitude": 40.4100963, "longitude": -3.6908892, "type": "fuente"}}
 {"date": 1511818199, "chat": 446512413, "location": {"latitude": 40.4100122, "longitude": -3.7033611, "type": "fuente"}}
 {"date": 1511818202, "chat": 446512413, "location": {"latitude": 40.413707, "longitude": -3.6957228, "type": "fuente"}}
+{"date": 1511818488, "location": {"type": "fuente", "longitude": -3.6913919, "latitude": 40.4124046}, "chat": 446512413}
+{"date": 1511818690, "location": {"longitude": -3.6970807, "latitude": 40.411395899999995, "type": "fuente"}, "chat": 446512413}
+{"location": {"longitude": -3.6970807, "latitude": 40.411395899999995, "type": "fuente"}, "date": 1511818768, "chat": 446512413}
+{"location": {"longitude": -3.6970807, "latitude": 40.411395899999995, "type": "fuente"}, "date": 1511818794, "chat": 446512413}
+{"date": 1511818840, "chat": 446512413, "location": {"longitude": -3.6970807, "type": "fuente", "latitude": 40.411395899999995}}
+{"date": 1511818843, "chat": 446512413, "location": {"longitude": -3.6913919, "type": "fuente", "latitude": 40.4124046}}
+{"date": 1511818850, "chat": 446512413, "location": {"longitude": -3.6926018, "type": "banco", "latitude": 40.4105797}}
+{"date": 1511861087, "chat": 446512413, "location": {"longitude": -3.7896, "latitude": 40.4523}}
+{"date": 1511861102, "chat": 446512413, "location": {"type": "banco", "longitude": -3.6925125, "latitude": 40.4102615}}
+{"date": 1511861222, "chat": 446512413, "location": {"type": "banco", "longitude": -3.6936062999999995, "latitude": 40.4108251}}
+{"date": 1511861402, "chat": 446512413, "location": {"id_OSM": 2001290839, "longitude": -3.727154, "bot": "banco", "latitude": 40.45098370000001, "coordinates": "(40.450983700000002, -3.7271540000000001)"}}
+{"date": 1511861419, "chat": 446512413, "location": {"id_OSM": 1348309156, "longitude": -3.6552512000000004, "bot": "fuente", "latitude": 40.3967588, "coordinates": "(40.396758800000001, -3.6552511999999999)"}}
+{"date": 1511861575, "chat": 454246448, "location": {"longitude": -3.7896, "latitude": 40.4523}}
+{"date": 1511861789, "chat": 446512413, "location": {"type": "fuente", "longitude": -3.6959401, "latitude": 40.4093777}}
+{"date": 1511862015, "location": {"type": "fuente", "longitude": -3.6932535, "latitude": 40.4127548}, "chat": 446512413}
+{"location": {"type": "fuente", "longitude": -3.6908892, "latitude": 40.4100963}, "chat": 446512413, "date": 1511862898}
+{"location": {"type": "fuente", "longitude": -3.6872214, "latitude": 40.4107233}, "chat": 446512413, "date": 1511863767}
+{"date": 1511864015, "location": {"latitude": 40.4113959, "longitude": -3.6970807, "type": "fuente"}, "chat": 446512413}
