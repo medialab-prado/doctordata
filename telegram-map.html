@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Ayúdanos a mejorar los datos del Ayuntamiento de Madrid">
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <!--<style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>-->
+
+            <style>
+                body {
+                    padding: 0;
+                    margin: 0;
+                }
+                html, body, #map {
+                    width : 100.0%;
+                    height: 100%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css" />
+</head>
+<body style="background-color:#333;color: white">
+
+<div class="folium-map" id="map" ></div>
+
+
+</body>
+<script>
+
+
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+            
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+            
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                    }
+                }
+            };
+
+            var bounds = null;
+
+            var latitude_param = getUrlParameter('latitude');
+            var longitude_param = getUrlParameter('longitude');
+            var zoom_param = getUrlParameter('zoom');
+            var dataset_param = getUrlParameter('dataset');
+            
+            if (latitude_param==null) {
+                latitude_param = 40.4168;
+            }
+
+            if (longitude_param==null) {
+                longitude_param = -3.7038;
+            }
+            
+            if (zoom_param==null) {
+                zoom_param = 11;
+            }
+
+            var map = L.map(
+                                  'map',
+                                  {center: [latitude_param,longitude_param],
+                                  zoom: zoom_param,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+
+            var tile_layer = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+                    "attribution": null,
+                    "detectRetina": false,
+                    "maxZoom": 19,
+                    "minZoom": 1,
+                    "noWrap": false,
+                    "subdomains": "abc"
+                }).addTo(map);
+
+
+            var marker_cluster = L.markerClusterGroup({
+                disableClusteringAtZoom: 16,
+                spiderfyOnMaxZoom: false,
+                maxClusterRadius: 100
+            });
+            map.addLayer(marker_cluster);
+
+            function circleClick(st,e) {
+                var clickedCircle = e.target;
+                console.log("Conflictos:"+st);
+                // do something, like:
+                clickedCircle.bindPopup("some content").openPopup();
+            }
+
+            var icon_osm = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+
+            var icon_mad = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'orange',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+            });
+
+
+            var print_elements = function print_elements(){
+                $.getJSON("https://raw.githubusercontent.com/medialab-prado/doctordata/master/examples/test-fuentes-close.json", function(json) {
+                         for (node in json){
+                            /*
+                            L.marker([json[node].position.latitude, json[node].position.longitude], {
+                                icon: new L.Icon.Default()
+                            }).addTo(marker_cluster).on("click",circleClick.bind(null, json[node].conflicts));
+                            */
+                            coords_osm = {}
+                            coords_mad = {}
+
+                            for (conflict in json[node].conflicts){
+                                conflict_object = json[node].conflicts[conflict];
+                                for (conflict_object_index in conflict_object) {
+                                    if (conflict_object[conflict_object_index]["source"]=="OSM") {
+                                        if ("latitude" in conflict_object[conflict_object_index]) {
+                                            coords_osm["latitude"] = conflict_object[conflict_object_index]["latitude"];
+                                            console.log("Es:"+coords_osm["latitude"])
+                                        } else if ("longitude" in conflict_object[conflict_object_index]) {
+                                            coords_osm["longitude"] = conflict_object[conflict_object_index]["longitude"];
+                                        }
+                                    } else if (conflict_object[conflict_object_index]["source"] == "MAD") {
+                                        if ("latitude" in conflict_object[conflict_object_index]) {
+                                            coords_mad["latitude"] = conflict_object[conflict_object_index]["latitude"];
+                                        } else if ("longitude" in conflict_object[conflict_object_index]) {
+                                            coords_mad["longitude"] = conflict_object[conflict_object_index]["longitude"];
+                                        }
+                                    }
+                                }
+                            }
+
+                            L.marker([coords_osm["latitude"], coords_osm["longitude"]], {
+                                icon: icon_osm, markerColor: 'blue'
+                            }).addTo(marker_cluster)
+
+
+
+                            L.marker([coords_mad["latitude"], coords_mad["longitude"]], {
+                                icon: icon_mad, markerColor: 'green'
+                            }).addTo(marker_cluster)
+                         }
+
+                    });
+            };
+            
+            if (dataset_param=="fuentes") {
+                console.log("Click");
+                print_elements();
+            }
+
+
+</script>
