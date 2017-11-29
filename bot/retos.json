@@ -98,3 +98,6 @@
 {"location": {"type": "fuente", "longitude": -3.6908892, "latitude": 40.4100963}, "chat": 446512413, "date": 1511862898}
 {"location": {"type": "fuente", "longitude": -3.6872214, "latitude": 40.4107233}, "chat": 446512413, "date": 1511863767}
 {"date": 1511864015, "location": {"latitude": 40.4113959, "longitude": -3.6970807, "type": "fuente"}, "chat": 446512413}
+{"chat": 446512413, "date": 1511869188, "location": {"latitude": 40.4108251, "type": "banco", "longitude": -3.6936063}}
+{"chat": 446512413, "date": 1511869200, "location": {"latitude": 40.4109289, "type": "banco", "longitude": -3.6927015}}
+{"date": 1511943630, "chat": 446512413, "location": {"latitude": 40.4124046, "longitude": -3.6913919, "type": "fuente"}}

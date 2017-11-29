@@ -1,12 +1,22 @@
 [
   {
-    "file":"20170614_BANCOS-edit.json",
+    "file”:”banco.json",
     "dataset":"bancos",
     "name":"Bancos"
   },
   {
-    "file":"20171110_InventarioFuentes-edit.json",
+    "file”:”fuente.json",
     "dataset":"fuentes",
     "name":"Fuentes"
+  },
+  {
+    "file”:”banco.json",
+    "dataset":"bancos",
+    "name":"Bancos"
+  },
+  {
+    "file”:”farola.json",
+    "dataset":"farolas",
+    "name":"Farolas"
   }
 ]

@@ -31,3 +31,4 @@ MONUMENTOS;"[""artwork_type"": ""statue"",""historic"": ""monument"",""historic"
 MONUMENTOS;"[""artwork_type"": ""statue"",""historic"": ""monument"",""historic""=""memorial""]";CALIF;;CALIF;5;50;monumentos;monumento
 MONUMENTOS;"[""artwork_type"": ""statue"",""historic"": ""monument"",""historic""=""memorial""]";TITULO;name;NOMBRE;5;50;monumentos;monumento
 MONUMENTOS;"[""artwork_type"": ""statue"",""historic"": ""monument"",""historic""=""memorial""]";LOCALIZACION;address;DIRECCION;5;50;monumentos;monumento
+FAROLAS;"[""highway"": ""street_lamp""]";;;;;;street_lamp;farola

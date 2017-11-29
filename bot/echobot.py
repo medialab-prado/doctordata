@@ -10,13 +10,14 @@ from telegram import keyboardbutton, ReplyKeyboardMarkup
 
 TOKEN = "497980376:AAGVpWuIksVtHUVJVvn0Gi4mcPbdyR873z0"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-DDURL = "https://medialab-prado.github.io/doctordata/index.html"
+DDURL = "https://medialab-prado.github.io/doctordata/telegram-map.html"
 
 location_test = {'latitude':40.4523, 'longitude': -3.7896}
 
 pwd = os.getcwd()[:-4]
-#pwd = '/Volumes/MacintoshHD/_GitHub/doctordata/api'
+#pwd = '/Volumes/MacintoshHD/_GitHub/doctordata/bot'
 cwd = pwd + '/api/csv/'
+jwd = pwd + '/api/json/'
 bwd = pwd + '/bot/'
 dwd = pwd + '/api/data/'
 
@@ -31,7 +32,6 @@ filelist = [ f for f in os.listdir(cwd) if f.endswith("-missing_AYU.csv") ]
 datalist = []
 
 for fichero in filelist:
-    print(fichero)
     data = pd.read_csv(fichero)
     data['bot'] = indice[indice['palabra']==fichero.split('-')[1]]['bot'].values[0]
     datalist.append(data)
@@ -101,6 +101,13 @@ def send_message(text, chat_id, reply_markup=None):
         url += "&reply_markup={}".format(reply_markup)
     get_url(url)
 
+def set_score(chat_id, text, date):
+    with open('scores.json','a') as myfile:
+        score = {'date':date, 'chat':chat_id, 'text':text}
+        stringJson = json.dumps(score)
+        myfile.write(stringJson+'\n')
+        myfile.close()
+
 def handle_updates(updates):
     for update in updates["result"]:
         with open('updates.json','a') as myfile:
@@ -160,23 +167,27 @@ def handle_updates(updates):
             if text == 'Sí, existe':
                 keyboard = build_keyboard(['Sí, funciona!','No, no funciona','Otro cercano','Salir'])
                 send_message("Genial! Muchas gracias por ayudar! Funciona???", chat, keyboard)
-
+                set_score(chat,text,date)
 
             if text == 'Sí, funciona!':
                 keyboard = build_keyboard(['Comenzamos de nuevo!','Reto del día','Otro cercano','Salir'])
                 send_message("Genial, muchas gracias por ayudar!", chat, keyboard)
+                set_score(chat,text,date)
 
             if text == 'No, no funciona':
                 keyboard = build_keyboard(['Comenzamos de nuevo!','Otro cercano','Salir'])
                 send_message("Vale, avisaremos a mantenimiento.", chat, keyboard)
+                set_score(chat,text,date)
 
             if text == 'No, no existe':
                 keyboard = build_keyboard(['Comenzamos de nuevo!','Salir'])
                 send_message("Vale, estos son los errores que queremos corregir y gracias a tu ayuda lo haremos!", chat, keyboard)
+                set_score(chat,text,date)
 
             if text == 'No sé!':
                 keyboard = build_keyboard(['Comenzamos de nuevo!','Salir'])
                 send_message("Vaya... he metido la pata seguro...", chat, keyboard)
+                set_score(chat,text,date)
 
             if text == 'Otro' or text =='Otro cercano' or text == 'Uno cercano a mi última ubicación':
                 try:
