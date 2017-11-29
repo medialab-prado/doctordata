@@ -35,3 +35,5 @@ Para obtener así los ficheros `.json` que necesita el bot y la web.
 Bueno, aquí os presentamos a nuestro doctordata. Es un bot, que pretende ser una herramienta de interacción entre el ciudadano y el Ayuntamiento, de modo que de forma colaborativa, los ciudadanos vayan aportando información sobre el estado de los ficheros del Ayuntamiento.
 
 `python3 bot/doctordata_bot.py`
+
+La estructura de la carpeta es sencilla, por un lado tenemos nuestro script del bot y un install_missing. Cuando comience a trabajar, creará ficheros json con información sobre la sesión, con todos los contactos, retos que ha lanzado y respuestas de la gente que ha participado con nosotros. También generará archivos temporarles csv con retos personalizados por usuario según la última ubicación.
