@@ -23,8 +23,8 @@ SF_COORDINATES = (40.4168, -3.7038)
 # for speed purposes
 MAX_RECORDS = 10
 
-pwd = '/Volumes/MacintoshHD/_GitHub/doctordata/api/data'
-pwd = os.getcwd()[:-9]
+#pwd = '/Volumes/MacintoshHD/_GitHub/doctordata/api/data'
+pwd = os.getcwd()
 cwd = pwd + '/api/csv/'
 jwd = pwd + '/api/json/'
 bwd = pwd + '/bot/'
