@@ -19,17 +19,19 @@ __Colaborador__
 * Raimundo Abril López
 
 ## api
---
+
 En esta sección se pueden encontrar los ficheros de procesamiento y almacenamiento de datos. Los datos se descargan desde la web del Ayuntamiento y se registran en data con su fecha como están aquí. Se asegura que en `indice.csv` contiene los nombres de las columnas de forma correcta y se lanza el script `doctordata.py`. Por ejemplo:
 
 
-`python doctordata.py 20171110-InventarioFuentes.csv`
+`python3 api/data/doctordata.py 20171110-InventarioFuentes.csv`
 
 Esto nos creará archivos csv con las diferencias entre el fichero de fuentes el Ayuntamiento y la base de datos de OpenStreetMap. Este proceso está automatizado a través de la API de OpenStreetMap. A continuación ejecutamos
 
-`translate_csv_to_json.py`
+`python3 api/translate_csv_to_json.py`
 
 Para obtener así los ficheros `.json` que necesita el bot y la web.
 
 ## bot
---
+Bueno, aquí os presentamos a nuestro doctordata. Es un bot, que pretende ser una herramienta de interacción entre el ciudadano y el Ayuntamiento, de modo que de forma colaborativa, los ciudadanos vayan aportando información sobre el estado de los ficheros del Ayuntamiento.
+
+`python3 bot/doctordata_bot.py`
