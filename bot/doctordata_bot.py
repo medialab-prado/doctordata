@@ -104,7 +104,6 @@ def send_location(test, chat_id, date):
 
     with open('retos.json','a') as myfile:
         reto = {'date':date, 'chat':chat_id, 'test':test}
-        print(reto)
         #Aquí hay un error
         stringJson = json.dumps(reto)
 
@@ -117,6 +116,17 @@ def send_message(text, chat_id, reply_markup=None):
     if reply_markup:
         url += "&reply_markup={}".format(reply_markup)
     get_url(url)
+
+def format_message(test):
+    articulo_dict = {'fuente':'la','banco':'el','papelera':'la','farola':'la'}
+    final_dict ={'fuente':'a','banco':'','papelera':'a','farola':'a'}
+    if test['type'] == 'missing':
+        text = 'Buscamos confirmar que hay un{} {} en esta ubicación. ¿Está ahí?'.format(final_dict[test['dataset']],test['dataset'])
+    if test['type'] == 'edit':
+        text = 'Parece que hay un conflicto en esta ubicación, buscamos un{} {} en esta ubicación y saber si está desplazado más de 5 metros de su posición. ¿Es correcta la ubicación?'.format(final_dict[test['dataset']],test['dataset'])
+
+    return text
+
 
 def set_score(chat_id, text, date):
     with open('retos.json','r') as myfile:
@@ -136,6 +146,18 @@ def set_score(chat_id, text, date):
         myfile.write(stringJson+'\n')
         myfile.close()
 
+def keyboard_missing(test):
+    if test['type'] == 'missing':
+        keyboard_missing = ['Sí, existe','Sí, pero no funciona','No, no existe','Otro al azar','Otro cercano','Salir']
+    if test['type'] == 'edit':
+        keyboard_missing = ['El correcto es el naranja','El correcto es el azul','Ninguno de los dos','Otro al azar','Otro cercano','Salir']
+    return keyboard_missing
+
+keyboard_wait = ['Comenzamos!','Reto del día','Más info','Salir']
+keyboard_menu = ['Comenzamos!','Salir']
+keyboard_go = ['Reto del día','Uno cercano a mi última ubicación','Uno al azar','Salir']
+keyboard_answer = ['Otro cercano','Otro al azar','Salir']
+
 def handle_updates(updates):
     for update in updates["result"]:
         with open('updates.json','a') as myfile:
@@ -149,30 +171,30 @@ def handle_updates(updates):
             first_name = update["message"]["from"]["first_name"]
 
             if text == "/start":
-                keyboard = build_keyboard(['Comenzamos!','Reto del día','Más info','Salir'])
+                keyboard = build_keyboard(keyboard_wait)
                 send_message("Hola {}, soy DoctorData, tu bot colaborativo para mejorar entre todos los datos abiertos de la web del ayuntamiento de Madrid.".format(first_name), chat, keyboard)
 
             if text == "/doctordata":
                 send_message(DDURL+'?dataset=fuentes&latitude=40.35&longitude=-3.78&zoom=18'.format(chat),chat)
 
             if text == 'Hola' or text == 'hola':
-                keyboard = build_keyboard(['Comenzamos!','Reto del día','Más info','Salir'])
+                keyboard = build_keyboard(keyboard_wait)
                 send_message('Hola, dime qué te apetece hoy.',chat, keyboard)
                 send_message('Si haces click en Comenzamos! te enviaré retos aleatorios, si me envías tu ubicación mucho mejor, porque estarán cerca tuya..',chat, keyboard)
                 send_message('Si por el contrario te apetece un buen reto, prueba el reto del día donde competirás con otros madrileños por ser el primero en responder.',chat, keyboard)
 
 
             if text != '':
-                keyboard = build_keyboard(['Comenzamos!','Reto del día','Más info','Salir'])
+                keyboard = build_keyboard(keyboard_wait)
 
             if text == 'Reto del día':
-                keyboard = build_keyboard(['Sí, existe','No, no existe','Otro al azar','Otro cercano','Salir'])
-                send_message('Dime si existe esta fuente!',chat, keyboard)
                 test = {'type':'missing', 'node':3232, 'dataset':'fuente', 'latitude': 40.32323, 'longitude': -3.7676}
+                keyboard = build_keyboard(keyboard_missing(test))
+                send_message(format_message(test),chat, keyboard)
                 send_location(test, chat, date)
 
             if text == 'Más info':
-                keyboard = build_keyboard(['Comenzamos!','Salir'])
+                keyboard = build_keyboard(keyboard_menu)
                 send_message("Este bot forma parte de un proyecto presentado al concurso de Medialab Prado #Datamad2017.\nCon él pretendemos mejorar los datos disponibles en el portal de datos del Ayuntamiento y que todos colaboremos en mantenerlos al día.", chat, keyboard)
                 send_message("Al responder a cada reto nos aportas información sobre elementos de tu ciudad, su estado de conservación, o simplemente si existen.", chat, keyboard)
                 send_message("Con tu colaboración hacemos mejor la información pública de nuestra ciudad y ayudamos/exigimos a la administración a mejorar.", chat, keyboard)
@@ -181,7 +203,7 @@ def handle_updates(updates):
                 send_message("https://medialab-prado.github.io/doctordata/",chat, keyboard)
 
             if text == 'Exit' or text == 'Salir':
-                keyboard = build_keyboard(['Comenzamos de nuevo!','Más info','Salir'])
+                keyboard = build_keyboard(keyboard_wait)
                 send_message("Gracias por usar este servicio. Recuerda que estaré por aquí para cuando quieras jugar!", chat, keyboard)
 
             if text == 'Comenzamos!' or text == 'Comenzamos de nuevo!':
@@ -189,23 +211,23 @@ def handle_updates(updates):
                 #reply_keyboard = [[location_keyboard]]
                 #custom_keyboard = [[location_keyboard]]
 
-                keyboard = build_keyboard(['Reto del día','Uno cercano a mi última ubicación','Uno al azar','Salir'])
+                keyboard = build_keyboard(keyboard_go)
                 #keyboard = build_keyboard_location(['Enviar ubicación'])
                 send_message("Necesito que me envíes tu ubicación. Así podré buscarte retos cercanos. Si no quieres compartir tu ubicación puedes elegir Uno al azar con los botones de abajo.", chat, keyboard)
 
             if text == 'Sí, existe' or text == 'Si':
-                keyboard = build_keyboard(['Otro cercano','Otro al azar','Salir'])
-                send_message("Genial! Muchas gracias por ayudar! Funciona???", chat, keyboard)
+                keyboard = build_keyboard(keyboard_answer)
+                send_message("Genial! Muchas gracias por ayudar!", chat, keyboard)
                 set_score(chat,text,date)
 
 
             if text == 'No, no existe' or text == 'No':
-                keyboard = build_keyboard(['Otro cercano','Otro al azar','Salir'])
+                keyboard = build_keyboard(keyboard_answer)
                 send_message("Vale, estos son los errores que queremos corregir y gracias a tu ayuda lo haremos!", chat, keyboard)
                 set_score(chat,text,date)
 
             if text == 'No sé!' or text == 'No lo sé' or text == 'No se' or text == 'Nose':
-                keyboard = build_keyboard(['Otro cercano','Otro al azar','Salir'])
+                keyboard = build_keyboard(keyboard_answer)
                 send_message("Vaya... he metido la pata seguro...", chat, keyboard)
                 set_score(chat,text,date)
 
@@ -216,21 +238,20 @@ def handle_updates(updates):
                     test = datos.loc[random.randint(0, datos.count()['node']-1)]
                     test = {'type':test['type'], 'node':test['node'], 'dataset':test['dataset'], 'latitude': test['latitude'], 'longitude': test['longitude']}
 
-                    keyboard = build_keyboard(['Sí, existe','No, no existe','Otro cercano','Salir'])
-                    send_message('Ahí va! Del dataset {}s. ¿Está ahí?'.format(test['dataset']),chat, keyboard)
+                    keyboard = build_keyboard(keyboard_missing(test))
+                    send_message(format_message(test),chat, keyboard)
                     send_location(test, chat, date)
 
                 except:
-                    keyboard = build_keyboard(['Comenzamos de nuevo!','Más info','Salir'])
-                    send_message("No tengo ninguna ubicación tuya aún..",chat, keyboard)
+                    keyboard = build_keyboard(keyboard_wait)
+                    send_message("No tengo ninguna ubicación tuya aún.. ¿Te importa mandármela?",chat, keyboard)
 
 
             if text == 'Uno al azar' or text == 'Otro al azar':
-                keyboard = build_keyboard(['Sí, existe','No, no existe','Otro al azar','Otro cercano','Salir'])
                 location_random = random.choice(testList)
                 test = {'type':location_random['type'], 'node':location_random['node'], 'dataset':location_random['dataset'], 'latitude': location_random['position']['latitude'], 'longitude': location_random['position']['longitude']}
-
-                send_message('Interesante, te gustan los retos... ¿Está {} esta {}?'.format(test['type'],test['dataset']),chat, keyboard)
+                keyboard = build_keyboard(keyboard_missing(test))
+                send_message(format_message(test),chat, keyboard)
                 send_location(test, chat, date)
 
 
@@ -241,10 +262,10 @@ def handle_updates(updates):
                 location = update["message"]["location"]
                 date = update["message"]["date"]
                 chat = update["message"]["chat"]["id"]
-                keyboard = build_keyboard(['Sí, existe','No, no existe','Otro','Salir'])
                 send_message('Genial, un segundo que voy a buscarte un reto cercano.',chat, keyboard)
                 test = get_close_test(location, data, chat)
-                send_message('¿Hay aquí un@ {}?'.format(test['dataset']),chat, keyboard)
+                keyboard = build_keyboard(keyboard_missing(test))
+                send_message(format_message(test),chat, keyboard)
                 send_location(test, chat, date)
 
             except Exception as e:
