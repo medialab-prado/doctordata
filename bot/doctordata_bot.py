@@ -6,7 +6,6 @@ import os
 import pandas as pd
 import random
 from geopy.distance import great_circle
-from telegram import keyboardbutton, ReplyKeyboardMarkup
 import yaml
 
 TOKEN = "497980376:AAGVpWuIksVtHUVJVvn0Gi4mcPbdyR873z0"
