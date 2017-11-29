@@ -13,7 +13,7 @@ URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 DDURL = "https://medialab-prado.github.io/doctordata/telegram-map.html"
 
 pwd = os.getcwd()[:-4]
-pwd = '/Volumes/MacintoshHD/_GitHub/doctordata'
+#pwd = '/Volumes/MacintoshHD/_GitHub/doctordata'
 cwd = pwd + '/api/csv/'
 jwd = pwd + '/api/json/'
 bwd = pwd + '/bot/'
