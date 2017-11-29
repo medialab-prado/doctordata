@@ -10,15 +10,34 @@ bwd = '/Volumes/MacintoshHD/_GitHub/doctordata/bot/'
 cwd = '/Volumes/MacintoshHD/_GitHub/doctordata/api/csv'
 dwd = '/Volumes/MacintoshHD/_GitHub/doctordata/api/data'
 os.chdir(bwd)
-chat = 446512413
+chat = 432214082
 datos = pd.read_csv(str(chat)+'.csv')
 datos.count()['id_OSM']
 random.randint(0,100)
 test = datos.loc[random.randint(0, datos.count()['id_OSM']-1)]
 location = {'latitude':test['latitude'],'longitude':test['longitude']}
 location
-with open('updates.json','r') as myfile:
+
+with open('retos.json','r') as myfile:
     datos = myfile.readlines()
+
+updates = []
+
+for i in range(len(datos)):
+    updates.append(yaml.load(datos[i]))
+
+len(updates)
+i = 1
+boolLoop = True
+while boolLoop:
+    if updates[-i]['chat'] == chat:
+        boolLoop = False
+    i = i+1
+
+updates[-i+1]
+
+updates[-2]['message']['chat']['id'] != chat
+updates[-1]
 
 cwd = pwd + '/api/csv/'
 bwd = pwd + '/bot/'

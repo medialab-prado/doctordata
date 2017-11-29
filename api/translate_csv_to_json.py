@@ -29,7 +29,6 @@ for key in results.keys():
     results[key]['bot'] = results[key]['bot'][0]
 
 results.keys()
-results
 os.chdir(cwd)
 
 for key in results.keys():
@@ -44,11 +43,11 @@ for key in results.keys():
         data = pd.read_csv(fichero)
         if fichero.endswith('-missing_AYU.csv'):
             for i in range(max(data.count())):
-                conflictList.append(dict({"type":fichero.split('-')[2].split('_')[0],"conflicts":[[{"latitude": data.loc[i]['lat_OSM'], "source": "OSM"},{"latitude": None, "source": "MAD"}],[{"longitude": data.loc[i]['lon_OSM'],"source": "OSM"},{"longitude": None,"source": "MAD"}]],"node":node+i,"position":{"latitude":data.loc[i]['lat_OSM'],"longitude":data.loc[i]['lon_OSM']}}))
+                conflictList.append(dict({"dataset":results[key]['bot'],"type":fichero.split('-')[2].split('_')[0],"conflicts":[[{"latitude": data.loc[i]['lat_OSM'], "source": "OSM"},{"latitude": None, "source": "MAD"}],[{"longitude": data.loc[i]['lon_OSM'],"source": "OSM"},{"longitude": None,"source": "MAD"}]],"node":node+i,"position":{"latitude":data.loc[i]['lat_OSM'],"longitude":data.loc[i]['lon_OSM']}}))
             node = node + i
         if fichero.endswith('-edit.csv'):
             for i in range(max(data.count())):
-                conflictList.append(dict({"conflicts":[[{"latitude": data.loc[i]['lat_OSM'], "source": "OSM"},{"latitude": data.loc[i]['LATITUD'], "source": "MAD"}],[{"longitude": data.loc[i]['lon_OSM'],"source": "OSM"},{"longitude": data.loc[i]['LONGITUD'],"source": "MAD"}]],"node":i+node,"position":{"latitude":data.loc[i]['LATITUD'],"longitude":data.loc[i]['LONGITUD']}}))
+                conflictList.append(dict({"dataset":results[key]['bot'],"type":fichero.split('-')[2].split('.')[0],"conflicts":[[{"latitude": data.loc[i]['lat_OSM'], "source": "OSM"},{"latitude": data.loc[i]['LATITUD'], "source": "MAD"}],[{"longitude": data.loc[i]['lon_OSM'],"source": "OSM"},{"longitude": data.loc[i]['LONGITUD'],"source": "MAD"}]],"node":i+node,"position":{"latitude":data.loc[i]['LATITUD'],"longitude":data.loc[i]['LONGITUD']}}))
             node = node + i
 
     os.chdir(jwd)

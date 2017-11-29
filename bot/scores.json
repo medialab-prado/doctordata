@@ -1,2 +1,6 @@
-{"text": "S\u00ed, existe", "date": 1511943640, "chat": 446512413}
-{"text": "No, no funciona", "date": 1511943645, "chat": 446512413}
+{"test": {"node": 3232, "longitude": -3.7676, "dataset": "fuente", "type": "missing", "latitude": 40.32323}, "text": "No, no existe", "chat": 446512413, "date": 1511961115}
+{"test": {"node": 664, "longitude": -3.6705928, "dataset": "fuente", "type": "missing", "latitude": 40.4342037}, "text": "S\u00ed, existe", "chat": 446512413, "date": 1511961159}
+{"test": {"node": 664, "longitude": -3.6705928, "dataset": "fuente", "type": "missing", "latitude": 40.4342037}, "text": "No, no funciona", "chat": 446512413, "date": 1511961170}
+{"test": {"node": 4593, "longitude": -3.7235358, "dataset": "farola", "type": "missing", "latitude": 40.452701700000006}, "text": "S\u00ed, existe", "chat": 446512413, "date": 1511961217}
+{"test": {"node": 3232, "longitude": -3.7676, "dataset": "fuente", "type": "missing", "latitude": 40.32323}, "date": 1511962617, "chat": 446512413, "text": "No, no existe"}
+{"test": {"node": 2153, "longitude": -3.7040697999999996, "dataset": "banco", "type": "missing", "latitude": 40.3997801}, "date": 1511962657, "chat": 446512413, "text": "S\u00ed, existe"}
