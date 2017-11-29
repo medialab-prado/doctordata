@@ -8,12 +8,13 @@ import random
 from geopy.distance import great_circle
 import yaml
 
+SESSION_ID = random.randint(0,1000000)
 TOKEN = "497980376:AAGVpWuIksVtHUVJVvn0Gi4mcPbdyR873z0"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 DDURL = "https://medialab-prado.github.io/doctordata/telegram-map.html"
 
 pwd = os.getcwd()
-#pwd = '/Volumes/MacintoshHD/_GitHub/doctordata'
+pwd = '/Volumes/MacintoshHD/_GitHub/doctordata'
 cwd = pwd + '/api/csv/'
 jwd = pwd + '/api/json/'
 bwd = pwd + '/bot/'
@@ -46,12 +47,17 @@ for test in datos:
 data = pd.DataFrame([tipo,dataset,node,latitude,longitude,list(zip(latitude,longitude))])
 data = data.transpose()
 data.columns=['type','dataset','node','latitude','longitude','coordinates']
-data
+data['latitude'] = data['latitude'].apply(lambda x: round(x,6))
+data['longitude'] = data['longitude'].apply(lambda x: round(x,6))
+data['coordinates'] = list(zip(data.latitude,data.longitude))
 testList = datos
 testList[0]
 location = {}
 testList[0]
 os.chdir(bwd)
+open('retos_{}.json'.format(SESSION_ID),'w')
+open('scores_{}.json'.format(SESSION_ID),'w')
+open('updates_{}.json'.format(SESSION_ID),'w')
 
 print('Ready!')
 
@@ -102,13 +108,13 @@ def send_location(test, chat_id, date):
     url = URL + "sendlocation?chat_id={}&latitude={}&longitude={}".format(chat_id, test['latitude'],test['longitude'])
     get_url(url)
 
-    with open('retos.json','a') as myfile:
-        reto = {'date':date, 'chat':chat_id, 'test':test}
+    with open('retos_{}.json'.format(SESSION_ID),'a') as myfile:
+        test['date'] = date
+        test['chat_id'] = chat_id
         #Aquí hay un error
-        stringJson = json.dumps(reto)
-
+        stringJson = json.dumps(test)
         myfile.write(stringJson+'\n')
-        myfile.close()
+    myfile.close()
 
 def send_message(text, chat_id, reply_markup=None):
     text = urllib.parse.quote_plus(text)
@@ -123,34 +129,35 @@ def format_message(test):
     if test['type'] == 'missing':
         text = 'Buscamos confirmar que hay un{} {} en esta ubicación. ¿Está ahí?'.format(final_dict[test['dataset']],test['dataset'])
     if test['type'] == 'edit':
-        text = 'Parece que hay un conflicto en esta ubicación, buscamos un{} {} en esta ubicación y saber si está desplazado más de 5 metros de su posición. ¿Es correcta la ubicación?'.format(final_dict[test['dataset']],test['dataset'])
+        text = 'Parece que hay un conflicto, buscamos un{} {} en esta ubicación y saber si está desplazado más de 5 metros de su posición. ¿Cuál es su posición correcta?'.format(final_dict[test['dataset']],test['dataset'])
 
     return text
 
 
-def set_score(chat_id, text, date):
-    with open('retos.json','r') as myfile:
+def set_score(chat, text, date):
+    with open('retos_{}.json'.format(SESSION_ID),'r') as myfile:
         datos = myfile.readlines()
 
     i = 1
     boolLoop = True
     while boolLoop:
         reto = yaml.load(datos[-i])
-        if yaml.load(datos[-i])['chat'] == chat_id:
+        if yaml.load(datos[-i])['chat_id'] == chat:
             boolLoop = False
         i = i+1
 
-    with open('scores.json','a') as myfile:
-        score = {'date':date, 'chat':chat_id, 'text':text, 'test':reto['test']}
+    with open('scores_{}.json'.format(SESSION_ID),'a') as myfile:
+        score = {'date':date, 'chat':chat, 'text':text, 'test':reto}
         stringJson = json.dumps(score)
         myfile.write(stringJson+'\n')
-        myfile.close()
+    myfile.close()
 
 def keyboard_missing(test):
-    if test['type'] == 'missing':
-        keyboard_missing = ['Sí, existe','Sí, pero no funciona','No, no existe','Otro al azar','Otro cercano','Salir']
-    if test['type'] == 'edit':
-        keyboard_missing = ['El correcto es el naranja','El correcto es el azul','Ninguno de los dos','Otro al azar','Otro cercano','Salir']
+    keyboard_missing = ['Sí, existe','Sí, pero no funciona','No, no existe','Otro al azar','Otro cercano','Salir']
+#    if test['type'] == 'missing':
+#        keyboard_missing = ['Sí, existe','Sí, pero no funciona','No, no existe','Otro al azar','Otro cercano','Salir']
+#    if test['type'] == 'edit':
+#        keyboard_missing = ['El correcto es el naranja','El correcto es el azul','Ninguno de los dos','Otro al azar','Otro cercano','Salir']
     return keyboard_missing
 
 keyboard_wait = ['Comenzamos!','Reto del día','Más info','Salir']
@@ -160,7 +167,7 @@ keyboard_answer = ['Otro cercano','Otro al azar','Salir']
 
 def handle_updates(updates):
     for update in updates["result"]:
-        with open('updates.json','a') as myfile:
+        with open('updates_{}.json'.format(SESSION_ID),'a') as myfile:
             stringJson = json.dumps(update)
             myfile.write(stringJson+'\n')
         myfile.close()
@@ -215,7 +222,7 @@ def handle_updates(updates):
                 #keyboard = build_keyboard_location(['Enviar ubicación'])
                 send_message("Necesito que me envíes tu ubicación. Así podré buscarte retos cercanos. Si no quieres compartir tu ubicación puedes elegir Uno al azar con los botones de abajo.", chat, keyboard)
 
-            if text == 'Sí, existe' or text == 'Si':
+            if text == 'Sí, existe' or text == 'Si' or text == 'Sí, pero no funciona':
                 keyboard = build_keyboard(keyboard_answer)
                 send_message("Genial! Muchas gracias por ayudar!", chat, keyboard)
                 set_score(chat,text,date)
@@ -233,10 +240,12 @@ def handle_updates(updates):
 
             if text == 'Otro' or text =='Otro cercano' or text == 'Uno cercano a mi última ubicación':
                 try:
-                    datos = pd.read_csv(str(chat)+'.csv')
-                    datos.count()['node']
-                    test = datos.loc[random.randint(0, datos.count()['node']-1)]
-                    test = {'type':test['type'], 'node':test['node'], 'dataset':test['dataset'], 'latitude': test['latitude'], 'longitude': test['longitude']}
+                    with open('{}.csv'.format(chat),'r') as infile:
+                        datos = infile.readlines()
+                    infile.close()
+                    numero = random.randint(0,len(datos))
+
+                    test = yaml.load(datos[numero])
 
                     keyboard = build_keyboard(keyboard_missing(test))
                     send_message(format_message(test),chat, keyboard)
@@ -262,9 +271,9 @@ def handle_updates(updates):
                 location = update["message"]["location"]
                 date = update["message"]["date"]
                 chat = update["message"]["chat"]["id"]
-                send_message('Genial, un segundo que voy a buscarte un reto cercano.',chat, keyboard)
                 test = get_close_test(location, data, chat)
                 keyboard = build_keyboard(keyboard_missing(test))
+                send_message('Genial, un segundo que voy a buscarte un reto cercano.',chat, keyboard)
                 send_message(format_message(test),chat, keyboard)
                 send_location(test, chat, date)
 
@@ -286,6 +295,7 @@ def get_close_test(location,data, chat_id):
     datas = data.copy()
     datas['close'] = datas['coordinates'].apply(lambda x: getDistance_meters(x, (location['latitude'],location['longitude'])))
     datas = datas.sort_values('close')
+    datas = datas.reset_index(drop=True)
     tipo = datas['type'].head(1).values[0]
     dataset = datas['dataset'].head(1).values[0]
     latitud = datas['latitude'].head(1).values[0]
@@ -293,9 +303,20 @@ def get_close_test(location,data, chat_id):
     nodo = datas['node'].head(1).values[0]
 
     test = {'type':tipo, 'node':nodo, 'dataset':dataset, 'latitude': latitud, 'longitude': longitud}
+    with open('{}.csv'.format(chat_id),'w') as outfile:
+        for i in range(25):
+            tipo = datas['type'].loc[i]
+            dataset = datas['dataset'].loc[i]
+            latitud = datas['latitude'].loc[i]
+            longitud = datas['longitude'].loc[i]
+            nodo = datas['node'].loc[i]
+            test_otro = {'type':tipo, 'node':nodo, 'dataset':dataset, 'latitude': latitud, 'longitude': longitud}
+            stringJson = json.dumps(test_otro)
+            outfile.writelines(stringJson+'\n')
 
-    datas.set_index('node',inplace=True)
-    datas.head(25).to_csv(str(chat_id)+'.csv')
+    outfile.close()
+
+
     return test
 
 def getDistance_meters(x,y):
