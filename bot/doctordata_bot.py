@@ -123,14 +123,17 @@ def send_message(text, chat_id, reply_markup=None):
         url += "&reply_markup={}".format(reply_markup)
     get_url(url)
 
+def send_reto(test, chat_id):
+    send_message(DDURL+'?dataset={}s&latitude={}&longitude={}&zoom=20&node={}'.format(test['dataset'],test['latitude'],test['longitude'],test['node']),chat_id)
+
 def format_message(test):
     articulo_dict = {'fuente':'la','banco':'el','papelera':'la','farola':'la','monumento':'el'}
     final_dict ={'fuente':'a','banco':'','papelera':'a','farola':'a','monumento':''}
-    
+
     if test['type'] == 'missing':
         text = 'Buscamos confirmar que hay un{} {} en esta ubicación. ¿Está ahí?'.format(final_dict[test['dataset']],test['dataset'])
     if test['type'] == 'edit':
-        text = 'Parece que hay un conflicto, buscamos un{} {} en esta ubicación y saber si está desplazado más de 5 metros de su posición. ¿Cuál es su posición correcta?'.format(final_dict[test['dataset']],test['dataset'])
+        text = 'Parece que hay un conflicto, buscamos un{} {} en esta ubicación y saber si está desplazado de su posición. ¿Cuál es su posición correcta?'.format(final_dict[test['dataset']],test['dataset'])
 
     return text
 
@@ -155,10 +158,10 @@ def set_score(chat, text, date):
 
 def keyboard_missing(test):
     keyboard_missing = ['Sí, existe','Sí, pero no funciona','No, no existe','Otro al azar','Otro cercano','Salir']
-#    if test['type'] == 'missing':
-#        keyboard_missing = ['Sí, existe','Sí, pero no funciona','No, no existe','Otro al azar','Otro cercano','Salir']
-#    if test['type'] == 'edit':
-#        keyboard_missing = ['El correcto es el naranja','El correcto es el azul','Ninguno de los dos','Otro al azar','Otro cercano','Salir']
+    if test['type'] == 'missing':
+        keyboard_missing = ['Sí, existe','Sí, pero no funciona','No, no existe','Otro al azar','Otro cercano','Salir']
+    if test['type'] == 'edit':
+        keyboard_missing = ['El correcto es el naranja','El correcto es el azul','Ninguno de los dos','Otro al azar','Otro cercano','Salir']
     return keyboard_missing
 
 keyboard_wait = ['Comenzamos!','Reto del día','Más info','Salir']
@@ -223,7 +226,7 @@ def handle_updates(updates):
                 #keyboard = build_keyboard_location(['Enviar ubicación'])
                 send_message("Necesito que me envíes tu ubicación. Así podré buscarte retos cercanos. Si no quieres compartir tu ubicación puedes elegir Uno al azar con los botones de abajo.", chat, keyboard)
 
-            if text == 'Sí, existe' or text == 'Si' or text == 'Sí, pero no funciona':
+            if text == 'Sí, existe' or text == 'Si' or text == 'Sí, pero no funciona' or text=='El correcto es el naranja' or text == 'El correcto es el azul' or text =='Ninguno de los dos':
                 keyboard = build_keyboard(keyboard_answer)
                 send_message("Genial! Muchas gracias por ayudar!", chat, keyboard)
                 set_score(chat,text,date)
@@ -247,9 +250,9 @@ def handle_updates(updates):
                     numero = random.randint(0,len(datos))
 
                     test = yaml.load(datos[numero])
-
                     keyboard = build_keyboard(keyboard_missing(test))
                     send_message(format_message(test),chat, keyboard)
+                    send_reto(test, chat)
                     send_location(test, chat, date)
 
                 except:
@@ -262,6 +265,7 @@ def handle_updates(updates):
                 test = {'type':location_random['type'], 'node':location_random['node'], 'dataset':location_random['dataset'], 'latitude': location_random['position']['latitude'], 'longitude': location_random['position']['longitude']}
                 keyboard = build_keyboard(keyboard_missing(test))
                 send_message(format_message(test),chat, keyboard)
+                send_reto(test, chat)
                 send_location(test, chat, date)
 
 
@@ -276,6 +280,7 @@ def handle_updates(updates):
                 keyboard = build_keyboard(keyboard_missing(test))
                 send_message('Genial, un segundo que voy a buscarte un reto cercano.',chat, keyboard)
                 send_message(format_message(test),chat, keyboard)
+                send_reto(test, chat)
                 send_location(test, chat, date)
 
             except Exception as e:
