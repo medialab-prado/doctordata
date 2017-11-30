@@ -44,6 +44,8 @@ for test in datos:
     latitude.append(test['position']['latitude'])
     longitude.append(test['position']['longitude'])
 
+print(set(dataset))
+
 data = pd.DataFrame([tipo,dataset,node,latitude,longitude,list(zip(latitude,longitude))])
 data = data.transpose()
 data.columns=['type','dataset','node','latitude','longitude','coordinates']
@@ -51,9 +53,8 @@ data['latitude'] = data['latitude'].apply(lambda x: round(x,6))
 data['longitude'] = data['longitude'].apply(lambda x: round(x,6))
 data['coordinates'] = list(zip(data.latitude,data.longitude))
 testList = datos
-testList[0]
+
 location = {}
-testList[0]
 os.chdir(bwd)
 open('retos_{}.json'.format(SESSION_ID),'w')
 open('scores_{}.json'.format(SESSION_ID),'w')
@@ -129,11 +130,12 @@ def send_reto(test, chat_id):
 def format_message(test):
     articulo_dict = {'fuente':'la','banco':'el','papelera':'la','farola':'la','monumento':'el'}
     final_dict ={'fuente':'a','banco':'','papelera':'a','farola':'a','monumento':''}
+    indef_dict ={'fuente':'a','banco':'o','papelera':'a','farola':'a','monumento':'o'}
 
     if test['type'] == 'missing':
         text = 'Buscamos confirmar que hay un{} {} en esta ubicación. ¿Está ahí?'.format(final_dict[test['dataset']],test['dataset'])
     if test['type'] == 'edit':
-        text = 'Parece que hay un conflicto, buscamos un{} {} en esta ubicación y saber si está desplazado de su posición. ¿Cuál es su posición correcta?'.format(final_dict[test['dataset']],test['dataset'])
+        text = 'Parece que hay un conflicto, buscamos un{} {} en esta ubicación y saber si está desplazad{} de su posición. ¿Cuál es su posición correcta?'.format(final_dict[test['dataset']],test['dataset'],indef_dict[test['dataset']])
 
     return text
 
