@@ -24,7 +24,7 @@ Bueno, aquí os presentamos a nuestro Bot DoctorData. Hablad con él en Telegram
 `@datamad_bot`
 
 ## ¿Qué es DoctorData?
-DoctorData es un bot unido a una web propia que permite a los ciudadanos interactuar con sus datos públicos y mejorarlos.
+DoctorData es un bot unido a una web propia que permite a los ciudadanos interactuar con sus datos públicos y mejorarlos. Partiendo de los datos abiertos de la web del Ayuntamiento de Madrid, los compara con OpenStreetMap y busca errores o discrepancias. Con esta información, genera retos que propone a los ciudadanos para, entre todos, mejorar la calidad de los mismos.
 
 ## ¿Por qué DoctorData?
 Porque creemos que es un acuerdo que beneficia a ambas partes, por un lado el Ayuntamiento obtiene información de gran calidad de forma muy sencilla y porque facilita a los ciudadanos interactuar con sus elementos urbanos.
