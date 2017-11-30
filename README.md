@@ -31,11 +31,11 @@ Porque creemos que es un acuerdo que beneficia a ambas partes, por un lado el Ay
 
 ## ¿Qué hemos hecho?
 Hemos comparado datasets del Ayuntamiento con los disponibles en OpenStreetMap a través de su API.
-Ahí hemos identificado elementos que no están en la web del Ayuntamiento y conflictos con desviaciones importantes de posición GPS.
+Ahí hemos identificado elementos que o bien no están en la web del Ayuntamiento o bien presentan grandes desviaciones en su posición GPS.
 
 
 ## ¿Cómo funciona DoctorData?
-Sólo lanza el script y contactarle por Telegram:
+Sólo lanza el script y contacta al bot por Telegram:
 
 `python3 bot/doctordata_bot.py`
 
