@@ -18,12 +18,24 @@ __Colaborador__
 
 * Raimundo Abril López
 
-## ¿Qué es DoctorData?
+#DoctorData
 Bueno, aquí os presentamos a nuestro Bot DoctorData. Hablad con él en Telegram!!
 
 `@datamad_bot`
 
-DoctorData es un bot, que pretende ser una herramienta de interacción entre el ciudadano y el Ayuntamiento, de modo que, de forma colaborativa, los ciudadanos vayan aportando información sobre el estado de los ficheros del Ayuntamiento.
+## ¿Qué es DoctorData?
+DoctorData es un bot unido a una web propia que permite a los ciudadanos interactuar con sus datos públicos y mejorarlos.
+
+## ¿Por qué DoctorData?
+Porque creemos que es un acuerdo que beneficia a ambas partes, por un lado el Ayuntamiento obtiene información de gran calidad de forma muy sencilla y porque facilita a los ciudadanos interactuar con sus elementos urbanos.
+
+## ¿Qué hemos hecho?
+Hemos comparado datasets del Ayuntamiento con los disponibles en OpenStreetMap a través de su API.
+Ahí hemos identificado elementos que no están en la web del Ayuntamiento y conflictos con desviaciones importantes de posición GPS.
+
+
+## ¿Cómo funciona DoctorData?
+Sólo lanza el script y contactarle por Telegram:
 
 `python3 bot/doctordata_bot.py`
 
@@ -33,7 +45,7 @@ Este bot, usa los datos analizados previamente para proponer retos a los ciudada
 * Localización, buscará retos cercanos al usuario.
 * Al azar, busca de forma aleatoria retos por la ciudad.
 
-La estructura de la carpeta es sencilla, por un lado tenemos nuestro script del bot y un install_missing. Cuando comience a trabajar, creará ficheros json con información sobre la sesión, con todos los contactos, retos que ha lanzado y respuestas de la gente que ha participado con nosotros. También generará archivos temporarles csv con retos personalizados por usuario según la última ubicación.
+La estructura de la carpeta es sencilla, por un lado tenemos nuestro script del bot y un `install_missing.sh`. Cuando comience a trabajar, creará ficheros json con información sobre la sesión, con todos los contactos, retos que ha lanzado y respuestas de la gente que ha participado con nosotros. También generará archivos temporarles csv con retos personalizados por usuario según la última ubicación.
 
 Los datasets que usamos son principalmente mobiliario urbano:
 
@@ -58,7 +70,7 @@ Los datos se descargan desde la web del Ayuntamiento y se registran en data con 
 
 `python3 api/data/doctordata.py 20171110-InventarioFuentes.csv`
 
-Este fichero `indice.csv` es muy importante porque ayuda al script a reconocer qué se va a encontrar según el tipo de archivo.
+Este fichero `indice.csv` es muy importante porque ayuda al script a reconocer qué se va a encontrar según el tipo de archivo. Esto permite una integración muy rápida de cualquier dataset nuevo que llegue!!
 
 Esto nos creará archivos csv con las diferencias entre el fichero de fuentes el Ayuntamiento y la base de datos de OpenStreetMap. Este proceso está automatizado a través de la API de OpenStreetMap. A continuación ejecutamos:
 
