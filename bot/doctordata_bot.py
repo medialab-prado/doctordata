@@ -9,7 +9,7 @@ from geopy.distance import great_circle
 import yaml
 
 SESSION_ID = random.randint(0,1000000)
-TOKEN = "497980376:AAGVpWuIksVtHUVJVvn0Gi4mcPbdyR873z0"
+TOKEN = "ADD BOT TOKEN"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 DDURL = "https://medialab-prado.github.io/doctordata/telegram-map.html"
 
