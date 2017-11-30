@@ -26,6 +26,8 @@ Bueno, aquí os presentamos a nuestro Bot DoctorData. Hablad con él en Telegram
 ## ¿Qué es DoctorData?
 DoctorData es un bot unido a una web propia que permite a los ciudadanos interactuar con sus datos públicos y mejorarlos. Partiendo de los datos abiertos de la web del Ayuntamiento de Madrid, los compara con OpenStreetMap y busca errores o discrepancias. Con esta información, genera retos que propone a los ciudadanos para, entre todos, mejorar la calidad de los mismos.
 
+Además, a través de la [Web de DoctorData](https://medialab-prado.github.io/doctordata), proponemos una plataforma para visualizar los conflictos encontrados en los diferentes datasets. Así, de una forma rápida, podemos ver estos errores, podemos ver zonas que requieren atención, o por el contrario ver dónde tenemos los vecinos más colaborativos.
+
 ## ¿Por qué DoctorData?
 Porque creemos que es un acuerdo que beneficia a ambas partes, por un lado el Ayuntamiento obtiene información de gran calidad de forma muy sencilla y porque facilita a los ciudadanos interactuar con sus elementos urbanos.
 
@@ -53,14 +55,6 @@ Los datasets que usamos son principalmente mobiliario urbano:
 * Bancos
 * Papeleras
 * Farolas, hemos elegido este dataset porque es un ejemplo de dataset no disponible a través de la web del Ayuntamiento.
-
-## ¿Por qué una web?
-
-Porque es una plataforma excelente para visualizar los conflictos encontrados de una forma rápida, encontrar zonas conflictivas o zonas donde los ciudadanos colaboran de forma más activa.
-
-En este caso podéis acceder a través de:
-
-[Web de DoctorData](https://medialab-prado.github.io/doctordata)
 
 ## API
 
