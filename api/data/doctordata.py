@@ -226,7 +226,7 @@ try:
         print('Create missing OSM DataFrame')
         AYU_NO.lat_OSM = AYU_NO.id_OSM.apply(lambda x: get_lat(x))
         AYU_NO.lon_OSM = AYU_NO.id_OSM.apply(lambda x: get_lon(x))
-        AYU_NO.score_OSM = AYU_NO.apply(lambda x: round(get_score(x),3)06, axis=1)
+        AYU_NO.score_OSM = AYU_NO.apply(lambda x: round(get_score(x),3), axis=1)
         AYU_NO['coord_OSM'] = list(zip(AYU_NO.lat_OSM, AYU_NO.lon_OSM))
 
         AYU = AYU.sort_values('score_OSM')

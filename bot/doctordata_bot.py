@@ -278,7 +278,7 @@ def handle_updates(updates):
 
 
         except Exception as e:
-            print(e)
+            print('Not' + e)
             try:
                 location = update["message"]["location"]
                 date = update["message"]["date"]
@@ -291,7 +291,7 @@ def handle_updates(updates):
                 send_location(test, chat, date)
 
             except Exception as e:
-                print(e)
+                print('No es' + e)
 
 
 def build_keyboard(items):
