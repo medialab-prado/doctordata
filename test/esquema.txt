@@ -1,0 +1,21 @@
+/api/v0.1/
+	osm/
+	ayuntamiento/
+		monumentos/ #Lista completa de monumentos
+			id	#Objeto completo según id de monumento
+		fuentes/ # Lista completa de monumentos
+			id	#Objeto completo según id
+		farolas/ # LIsta completa de monumentos
+	doctordata/
+		conflicts/[monumentos, fuentes, farolas, ]
+			# Devuelve:
+				{
+					{
+					id:121,
+					Point:(lat,lon),
+					conflict:[(nombreOSM:”fuente”, nombreAyu:”Fuente de tal”),(LatOSM:43.23423, latAyu:43.4343)]
+					}
+				}
+		suggestions/
+			# Devuelve:
+				
