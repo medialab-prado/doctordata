@@ -19,7 +19,6 @@ __Colaborador__
 * Raimundo Abril López
 
 ## ¿Qué es DoctorData?
------
 Bueno, aquí os presentamos a nuestro Bot DoctorData. Hablad con él en Telegram!!
 
 `@datamad_bot`
