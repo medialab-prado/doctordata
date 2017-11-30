@@ -5,7 +5,7 @@
         "conflicts": [
             [
                 {
-                    "latitude": 40.4131213,
+                    "latitude": 40.4130648,
                     "source": "OSM"
                 },
                 {
@@ -15,7 +15,7 @@
             ],
             [
                 {
-                    "longitude": -3.6993637,
+                    "longitude": -3.6991697,
                     "source": "OSM"
                 },
                 {
