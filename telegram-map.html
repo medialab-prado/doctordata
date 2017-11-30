@@ -63,6 +63,7 @@
             var longitude_param = getUrlParameter('longitude');
             var zoom_param = getUrlParameter('zoom');
             var dataset_param = getUrlParameter('dataset');
+            var node_id = getUrlParameter('node_id');
             
             if (latitude_param==null) {
                 latitude_param = 40.4168;
@@ -129,54 +130,165 @@
             });
 
 
-            var print_elements = function print_elements(){
-                $.getJSON("https://raw.githubusercontent.com/medialab-prado/doctordata/master/examples/test-fuentes-close.json", function(json) {
+            function print_elements(url_string){
+                $.getJSON(url_string, function(json) {
+                         
                          for (node in json){
-                            /*
-                            L.marker([json[node].position.latitude, json[node].position.longitude], {
-                                icon: new L.Icon.Default()
-                            }).addTo(marker_cluster).on("click",circleClick.bind(null, json[node].conflicts));
-                            */
+
                             coords_osm = {}
                             coords_mad = {}
-
+                            
+                            var conflict_string = " <table class=\"table table-striped\"><thead><tr><th>OSM</th><th>MAD</th></tr></thead><tbody>";
+                                
+                            
                             for (conflict in json[node].conflicts){
                                 conflict_object = json[node].conflicts[conflict];
-                                for (conflict_object_index in conflict_object) {
+                                hasMAD = false;
+                                
+                                 for (conflict_object_index in conflict_object) {           
+                                   
+                                    
                                     if (conflict_object[conflict_object_index]["source"]=="OSM") {
+                                        conflict_string = conflict_string + "<tr>";
                                         if ("latitude" in conflict_object[conflict_object_index]) {
-                                            coords_osm["latitude"] = conflict_object[conflict_object_index]["latitude"];
-                                            console.log("Es:"+coords_osm["latitude"])
+                                            conflict_string = conflict_string + "<td>Latitude:"+conflict_object[conflict_object_index]["latitude"]+"</td>";
+                                            coords_osm["latitude"] = conflict_object[conflict_object_index]["latitude"];                   
                                         } else if ("longitude" in conflict_object[conflict_object_index]) {
+                                            conflict_string = conflict_string +"<td>Longitude:"+conflict_object[conflict_object_index]["longitude"]+"</td>";
                                             coords_osm["longitude"] = conflict_object[conflict_object_index]["longitude"];
                                         }
                                     } else if (conflict_object[conflict_object_index]["source"] == "MAD") {
                                         if ("latitude" in conflict_object[conflict_object_index]) {
-                                            coords_mad["latitude"] = conflict_object[conflict_object_index]["latitude"];
+                                            conflict_string = conflict_string + "<td>Latitude:"+conflict_object[conflict_object_index]["latitude"]+"</td></tr>";
+                                            if (conflict_object[conflict_object_index]["latitude"]!=null) {
+                                                hasMAD = true;
+                                                coords_mad["latitude"] = conflict_object[conflict_object_index]["latitude"];
+                                            } 
                                         } else if ("longitude" in conflict_object[conflict_object_index]) {
-                                            coords_mad["longitude"] = conflict_object[conflict_object_index]["longitude"];
+                                            conflict_string = conflict_string + "<td>Longitude:"+conflict_object[conflict_object_index]["longitude"]+"</td></tr>";
+                                            if (conflict_object[conflict_object_index]["longitude"]!=null) {
+                                                hasMAD = true;
+                                                coords_mad["longitude"] = conflict_object[conflict_object_index]["longitude"];
+                                            }
+                                            
                                         }
                                     }
                                 }
                             }
 
-                            L.marker([coords_osm["latitude"], coords_osm["longitude"]], {
+                            var marker = L.marker([coords_osm["latitude"], coords_osm["longitude"]], {
                                 icon: icon_osm, markerColor: 'blue'
                             }).addTo(marker_cluster)
+                            
+                            conflict_string = conflict_string + "</tbody></table>";
+                            
+                            marker.bindPopup(conflict_string).openPopup();
 
 
-
-                            L.marker([coords_mad["latitude"], coords_mad["longitude"]], {
-                                icon: icon_mad, markerColor: 'green'
-                            }).addTo(marker_cluster)
+                            if (hasMAD) {
+                                var markerMAD = L.marker([coords_mad["latitude"], coords_mad["longitude"]], {
+                                    icon: icon_mad, markerColor: 'green'
+                                }).addTo(marker_cluster)
+                                
+                                markerMAD.bindPopup(conflict_string).openPopup();
+                            }
+                          
                          }
+                    });
+            };
+            
+            function print_element(url_string, node){
+                $.getJSON(url_string, function(json) {
 
+                            coords_osm = {}
+                            coords_mad = {}
+                            
+                            //map.panTo(new L.LatLng(json[node].position['latitude'],json[node].position['longitude']));
+                            map.setView([json[node].position['latitude'],json[node].position['longitude']],16);
+                            
+                            
+                            var conflict_string = " <table class=\"table table-striped\"><thead><tr><th>OSM</th><th>MAD</th></tr></thead><tbody>";
+                                
+                            
+                            for (conflict in json[node].conflicts){
+                                conflict_object = json[node].conflicts[conflict];
+                                hasMAD = false;
+                                
+                                 for (conflict_object_index in conflict_object) {           
+                                   
+                                    
+                                    if (conflict_object[conflict_object_index]["source"]=="OSM") {
+                                        conflict_string = conflict_string + "<tr>";
+                                        if ("latitude" in conflict_object[conflict_object_index]) {
+                                            conflict_string = conflict_string + "<td>Latitude:"+conflict_object[conflict_object_index]["latitude"]+"</td>";
+                                            coords_osm["latitude"] = conflict_object[conflict_object_index]["latitude"];                   
+                                        } else if ("longitude" in conflict_object[conflict_object_index]) {
+                                            conflict_string = conflict_string +"<td>Longitude:"+conflict_object[conflict_object_index]["longitude"]+"</td>";
+                                            coords_osm["longitude"] = conflict_object[conflict_object_index]["longitude"];
+                                        }
+                                    } else if (conflict_object[conflict_object_index]["source"] == "MAD") {
+                                        if ("latitude" in conflict_object[conflict_object_index]) {
+                                            conflict_string = conflict_string + "<td>Latitude:"+conflict_object[conflict_object_index]["latitude"]+"</td></tr>";
+                                            if (conflict_object[conflict_object_index]["latitude"]!=null) {
+                                                hasMAD = true;
+                                                coords_mad["latitude"] = conflict_object[conflict_object_index]["latitude"];
+                                            } 
+                                        } else if ("longitude" in conflict_object[conflict_object_index]) {
+                                            conflict_string = conflict_string + "<td>Longitude:"+conflict_object[conflict_object_index]["longitude"]+"</td></tr>";
+                                            if (conflict_object[conflict_object_index]["longitude"]!=null) {
+                                                hasMAD = true;
+                                                coords_mad["longitude"] = conflict_object[conflict_object_index]["longitude"];
+                                            }
+                                            
+                                        }
+                                    }
+                                }
+                            }
+
+                            var marker = L.marker([coords_osm["latitude"], coords_osm["longitude"]], {
+                                icon: icon_osm, markerColor: 'blue'
+                            }).addTo(marker_cluster)
+                            
+                            conflict_string = conflict_string + "</tbody></table>";
+                            
+                            marker.bindPopup(conflict_string).openPopup();
+
+
+                            if (hasMAD) {
+                                var markerMAD = L.marker([coords_mad["latitude"], coords_mad["longitude"]], {
+                                    icon: icon_mad, markerColor: 'green'
+                                }).addTo(marker_cluster)
+                                
+                                markerMAD.bindPopup(conflict_string).openPopup();
+                            }
+                          
+                         
                     });
             };
             
             if (dataset_param=="fuentes") {
-                console.log("Click");
-                print_elements();
+                 if (node_id==null) {
+                    print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/fuente.json");
+                 } else {
+                    print_element("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/fuente.json",node_id)
+                 }
+                 
+            }
+            
+            if (dataset_param=="monumentos") {
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/monumento.json");
+            }
+            
+             if (dataset_param=="farolas") {
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/farola.json");
+            }
+            
+            if (dataset_param=="alojamientos") {
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/alojamiento.json");
+            }
+            
+            if (dataset_param=="bancos") {
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/banco.json");
             }
 
 
