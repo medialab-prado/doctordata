@@ -188,7 +188,11 @@ def handle_updates(updates):
                 send_message("Hola {}, soy DoctorData, tu bot colaborativo para mejorar entre todos los datos abiertos de la web del ayuntamiento de Madrid.".format(first_name), chat, keyboard)
 
             if text == "/doctordata":
-                send_message(DDURL+'?dataset=fuentes&latitude=40.35&longitude=-3.78&zoom=18'.format(chat),chat)
+                test = {'type':'missing', 'node':3232, 'dataset':'fuente', 'latitude': 40.32323, 'longitude': -3.7676}
+                keyboard = build_keyboard(keyboard_missing(test))
+                send_message(format_message(test),chat, keyboard)
+                send_reto(test,chat)
+                send_location(test, chat, date)
 
             if text == 'Hola' or text == 'hola':
                 keyboard = build_keyboard(keyboard_wait)
@@ -204,6 +208,7 @@ def handle_updates(updates):
                 test = {'type':'missing', 'node':3232, 'dataset':'fuente', 'latitude': 40.32323, 'longitude': -3.7676}
                 keyboard = build_keyboard(keyboard_missing(test))
                 send_message(format_message(test),chat, keyboard)
+                send_reto(test,chat)
                 send_location(test, chat, date)
 
             if text == 'Más info':
