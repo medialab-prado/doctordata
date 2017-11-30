@@ -19,7 +19,11 @@ __Colaborador__
 * Raimundo Abril López
 
 ## bot
-Bueno, aquí os presentamos a nuestro doctordata. Es un bot, que pretende ser una herramienta de interacción entre el ciudadano y el Ayuntamiento, de modo que de forma colaborativa, los ciudadanos vayan aportando información sobre el estado de los ficheros del Ayuntamiento.
+Bueno, aquí os presentamos a nuestro doctordata. Hablad con él en Telegram!!
+
+`@datamad_bot`
+
+Es un bot, que pretende ser una herramienta de interacción entre el ciudadano y el Ayuntamiento, de modo que de forma colaborativa, los ciudadanos vayan aportando información sobre el estado de los ficheros del Ayuntamiento.
 
 `python3 bot/doctordata_bot.py`
 
