@@ -10,7 +10,6 @@ sudo pip install --upgrade pip
 
 sudo pip install pandas
 sudo pip3 install pandas
-sudo pip install geopy
-sudo pip install
-sudo pip install python-telegram-bot --upgrade
+sudo pip3 install geopy
+sudo pip3 install python-telegram-bot --upgrade
 sudo apt-get install python3-yaml -y
