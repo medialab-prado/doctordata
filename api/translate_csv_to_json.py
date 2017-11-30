@@ -4,10 +4,10 @@ import os
 import sys
 
 pwd = os.getcwd()
-pwd = '/Volumes/MacintoshHD/_GitHub/doctordata/api'
-cwd = pwd + '/csv/'
-jwd = pwd + '/json/'
-dwd = pwd + '/data/'
+pwd = '/Volumes/MacintoshHD/_GitHub/doctordata'
+cwd = pwd + '/api/csv/'
+jwd = pwd + '/api/json/'
+dwd = pwd + '/api/data/'
 
 os.chdir(cwd)
 filelist = [ f for f in os.listdir() if f.endswith(".csv") ]
@@ -28,7 +28,6 @@ for key in results.keys():
     results[key]['palabra'] = results[key]['palabra'][0]
     results[key]['bot'] = results[key]['bot'][0]
 
-results.keys()
 os.chdir(cwd)
 
 for key in results.keys():
@@ -39,15 +38,17 @@ for key in results.keys():
 
     conflictList = []
     node = 0
+
     for fichero in files:
         data = pd.read_csv(fichero)
+
         if fichero.endswith('-missing_AYU.csv'):
             for i in range(max(data.count())):
-                conflictList.append(dict({"dataset":results[key]['bot'],"type":fichero.split('-')[2].split('_')[0],"conflicts":[[{"latitude": data.loc[i]['lat_OSM'], "source": "OSM"},{"latitude": None, "source": "MAD"}],[{"longitude": data.loc[i]['lon_OSM'],"source": "OSM"},{"longitude": None,"source": "MAD"}]],"node":node+i,"position":{"latitude":data.loc[i]['lat_OSM'],"longitude":data.loc[i]['lon_OSM']}}))
+                conflictList.append(dict({"dataset":results[key]['bot'],"type":fichero.split('-')[2].split('_')[0],"conflicts":[[{"latitude": round(data.loc[i]['lat_OSM'],7), "source": "OSM"},{"latitude": None, "source": "MAD"}],[{"longitude": round(data.loc[i]['lon_OSM'],7),"source": "OSM"},{"longitude": None,"source": "MAD"}]],"node":node+i,"position":{"latitude":round(data.loc[i]['lat_OSM'],7),"longitude":round(data.loc[i]['lon_OSM'],7)}}))
             node = node + i
         if fichero.endswith('-edit.csv'):
             for i in range(max(data.count())):
-                conflictList.append(dict({"dataset":results[key]['bot'],"type":fichero.split('-')[2].split('.')[0],"conflicts":[[{"latitude": data.loc[i]['lat_OSM'], "source": "OSM"},{"latitude": data.loc[i]['LATITUD'], "source": "MAD"}],[{"longitude": data.loc[i]['lon_OSM'],"source": "OSM"},{"longitude": data.loc[i]['LONGITUD'],"source": "MAD"}]],"node":i+node,"position":{"latitude":data.loc[i]['LATITUD'],"longitude":data.loc[i]['LONGITUD']}}))
+                conflictList.append(dict({"dataset":results[key]['bot'],"type":fichero.split('-')[2].split('.')[0],"conflicts":[[{"latitude": round(data.loc[i]['lat_OSM'],7), "source": "OSM"},{"latitude": round(data.loc[i]['LATITUD'],7), "source": "MAD"}],[{"longitude": round(data.loc[i]['lon_OSM'],7),"source": "OSM"},{"longitude": round(data.loc[i]['LONGITUD'],7),"source": "MAD"}]],"node":i+node,"position":{"latitude":round(data.loc[i]['LATITUD'],7),"longitude":round(data.loc[i]['LONGITUD'],7)}}))
             node = node + i
 
     os.chdir(jwd)

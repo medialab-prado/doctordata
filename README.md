@@ -18,27 +18,50 @@ __Colaborador__
 
 * Raimundo Abril López
 
-## bot
-Bueno, aquí os presentamos a nuestro doctordata. Hablad con él en Telegram!!
+## ¿Qué es DoctorData?
+-----
+Bueno, aquí os presentamos a nuestro Bot DoctorData. Hablad con él en Telegram!!
 
 `@datamad_bot`
 
-Es un bot, que pretende ser una herramienta de interacción entre el ciudadano y el Ayuntamiento, de modo que de forma colaborativa, los ciudadanos vayan aportando información sobre el estado de los ficheros del Ayuntamiento.
+DoctorData es un bot, que pretende ser una herramienta de interacción entre el ciudadano y el Ayuntamiento, de modo que, de forma colaborativa, los ciudadanos vayan aportando información sobre el estado de los ficheros del Ayuntamiento.
 
 `python3 bot/doctordata_bot.py`
 
+Este bot, usa los datos analizados previamente para proponer retos a los ciudadanos, a través de:
+
+* Reto del día, es un reto predefinido y que busca responder rápido a alguna cuestión en particular.
+* Localización, buscará retos cercanos al usuario.
+* Al azar, busca de forma aleatoria retos por la ciudad.
+
 La estructura de la carpeta es sencilla, por un lado tenemos nuestro script del bot y un install_missing. Cuando comience a trabajar, creará ficheros json con información sobre la sesión, con todos los contactos, retos que ha lanzado y respuestas de la gente que ha participado con nosotros. También generará archivos temporarles csv con retos personalizados por usuario según la última ubicación.
 
-## web
+Los datasets que usamos son principalmente mobiliario urbano:
 
-## api
+* Fuentes de agua potable
+* Bancos
+* Papeleras
+* Farolas, hemos elegido este dataset porque es un ejemplo de dataset no disponible a través de la web del Ayuntamiento.
 
-En esta sección se pueden encontrar los ficheros de procesamiento y almacenamiento de datos. Los datos se descargan desde la web del Ayuntamiento y se registran en data con su fecha como están aquí. Se asegura que en `indice.csv` contiene los nombres de las columnas de forma correcta y se lanza el script `doctordata.py`. Por ejemplo:
+## ¿Por qué una web?
 
+Porque es una plataforma excelente para visualizar los conflictos encontrados de una forma rápida, encontrar zonas conflictivas o zonas donde los ciudadanos colaboran de forma más activa.
+
+En este caso podéis acceder a través de:
+
+[Web de DoctorData](https://medialab-prado.github.io/doctordata)
+
+## API
+
+En esta sección se encuentran los datos preparados en Json para ser servidos. Al igual que los usa nuestro Bot.
+
+Los datos se descargan desde la web del Ayuntamiento y se registran en data con su fecha como podréis ver dentro de las carpetas. Se asegura que en `indice.csv` están contenidos todos los nombres de las columnas de forma correcta y se lanza el script `doctordata.py`. Por ejemplo:
 
 `python3 api/data/doctordata.py 20171110-InventarioFuentes.csv`
 
-Esto nos creará archivos csv con las diferencias entre el fichero de fuentes el Ayuntamiento y la base de datos de OpenStreetMap. Este proceso está automatizado a través de la API de OpenStreetMap. A continuación ejecutamos
+Este fichero `indice.csv` es muy importante porque ayuda al script a reconocer qué se va a encontrar según el tipo de archivo.
+
+Esto nos creará archivos csv con las diferencias entre el fichero de fuentes el Ayuntamiento y la base de datos de OpenStreetMap. Este proceso está automatizado a través de la API de OpenStreetMap. A continuación ejecutamos:
 
 `python3 api/translate_csv_to_json.py`
 
