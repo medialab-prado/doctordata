@@ -124,8 +124,9 @@ def send_message(text, chat_id, reply_markup=None):
     get_url(url)
 
 def format_message(test):
-    articulo_dict = {'fuente':'la','banco':'el','papelera':'la','farola':'la'}
-    final_dict ={'fuente':'a','banco':'','papelera':'a','farola':'a'}
+    articulo_dict = {'fuente':'la','banco':'el','papelera':'la','farola':'la','monumento':'el'}
+    final_dict ={'fuente':'a','banco':'','papelera':'a','farola':'a','monumento':''}
+    
     if test['type'] == 'missing':
         text = 'Buscamos confirmar que hay un{} {} en esta ubicación. ¿Está ahí?'.format(final_dict[test['dataset']],test['dataset'])
     if test['type'] == 'edit':

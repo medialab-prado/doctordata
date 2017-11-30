@@ -23,7 +23,7 @@ SF_COORDINATES = (40.4168, -3.7038)
 # for speed purposes
 MAX_RECORDS = 10
 
-#pwd = '/Volumes/MacintoshHD/_GitHub/doctordata/api/data'
+#pwd = '/Volumes/MacintoshHD/_GitHub/doctordata'
 pwd = os.getcwd()
 cwd = pwd + '/api/csv/'
 jwd = pwd + '/api/json/'
@@ -85,7 +85,7 @@ def getDistance_meters(x,y):
         return 0
 
 print('Opening files and ensuring naming convention...')
-os.chdir('/Volumes/MacintoshHD/_GitHub/doctordata/api/data/')
+os.chdir(dwd)
 indice = pd.read_csv('indice.csv',encoding='latin-1',delimiter=';',index_col=0)
 
 results = {}
@@ -99,7 +99,7 @@ for key in results.keys():
     results[key]['palabra'] = results[key]['palabra'][0]
 
 #AYU_fichero = '20171110-InventarioFuentes.csv'
-first_arg = 'street_lamp'
+#first_arg = 'street_lamp'
 try:
     if (first_arg != '-f'):
         AYU_fichero = first_arg
@@ -121,6 +121,7 @@ try:
         lon = [OSM['features'][i]['geometry']['coordinates'][0] for i in range(len(OSM['features']))]
         ayu = ids[:]
         print('Creating {} dataframe'.format(palabra))
+        print('Found {} entities in OSM.'.format(str(len(ids))))
 
         AYU_MISSING = []
         for i in range(len(ids)):
@@ -156,6 +157,8 @@ try:
         #name = [OSM['features'][i]['properties']['name'] for i in range(len(OSM['features']))]
         ayu = ids[:]
 
+        print('Creating {} dataframe'.format(first_arg))
+        print('Found {} entities in OSM.'.format(str(len(ids))))
 
         # Add ayuntamiento data
         #results[fichero]['DOCTORDATA'][1:]
@@ -185,8 +188,10 @@ try:
         AYU['score_OSM'] = pd.Series()
         #AYU['X_ETRS89'] = AYU['X_ETRS89'].apply(lambda x: float(x.replace(',','.')))
         #AYU['Y_ETRS89'] = AYU['Y_ETRS89'].apply(lambda x: float(x.replace(',','.')))
-        AYU['coord'] = list(zip(AYU.LATITUD, AYU.LONGITUD))
         #AYU = AYU[:200]
+        AYU['LATITUD'] = AYU['LATITUD'].apply(lambda x: round(float(x),7))
+        AYU['LONGITUD'] = AYU['LONGITUD'].apply(lambda x: round(float(x),7))
+        AYU['coord'] = list(zip(AYU.LATITUD, AYU.LONGITUD))
 
         print('Get id matching....')
         AYU.id_OSM = AYU.coord.apply(lambda x: get_id(x))
@@ -204,26 +209,30 @@ try:
         print('Geolocating from OSM...')
         AYU.lat_OSM = AYU.id_OSM.apply(lambda x: get_lat(x))
         AYU.lon_OSM = AYU.id_OSM.apply(lambda x: get_lon(x))
-        AYU.score_OSM = AYU.apply(lambda x: get_score(x), axis=1)
+        AYU.score_OSM = AYU.apply(lambda x: round(get_score(x),3), axis=1)
+        AYU['lat_OSM'] = AYU['lat_OSM'].apply(lambda x: round(float(x),7))
+        AYU['lon_OSM'] = AYU['lon_OSM'].apply(lambda x: round(float(x),7))
         AYU['coord_OSM'] = list(zip(AYU.lat_OSM, AYU.lon_OSM))
 
         try:
+            print('Creating close DataFrame')
             AYU_CLOSE.lat_OSM = AYU_CLOSE.id_OSM.apply(lambda x: get_lat(x))
             AYU_CLOSE.lon_OSM = AYU_CLOSE.id_OSM.apply(lambda x: get_lon(x))
-            AYU_CLOSE.score_OSM = AYU_CLOSE.apply(lambda x: get_score(x), axis=1)
+            AYU_CLOSE.score_OSM = AYU_CLOSE.apply(lambda x: round(get_score(x),3), axis=1)
             AYU_CLOSE['coord_OSM'] = list(zip(AYU_CLOSE.lat_OSM, AYU_CLOSE.lon_OSM))
         except:
             print('No close')
 
+        print('Create missing OSM DataFrame')
         AYU_NO.lat_OSM = AYU_NO.id_OSM.apply(lambda x: get_lat(x))
         AYU_NO.lon_OSM = AYU_NO.id_OSM.apply(lambda x: get_lon(x))
-        AYU_NO.score_OSM = AYU_NO.apply(lambda x: get_score(x), axis=1)
+        AYU_NO.score_OSM = AYU_NO.apply(lambda x: round(get_score(x),3)06, axis=1)
         AYU_NO['coord_OSM'] = list(zip(AYU_NO.lat_OSM, AYU_NO.lon_OSM))
 
         AYU = AYU.sort_values('score_OSM')
         #AYU.name_OSM = AYU.id_OSM.apply(lambda x: get_name(x))
 
-        print('Creating missing Dataframe...')
+        print('Creating missing AYU Dataframe...')
         AYU_MISSING = []
         for i in range(len(ids)):
             AYU_MISSING.append((ids[i],lat[i],lon[i]))
@@ -232,9 +241,9 @@ try:
         AYU_MISSING.columns = ['id_OSM','lat_OSM','lon_OSM']
 
         AYU_MISSING = AYU_MISSING.set_index('id_OSM')
-        AYU_MISSING['coord'] = list(zip(AYU_MISSING.lat_OSM.values, AYU_MISSING.lon_OSM.values))
+        AYU_MISSING['coord_OSM'] = list(zip(AYU_MISSING.lat_OSM.values, AYU_MISSING.lon_OSM.values))
 
-        os.chdir('/Volumes/MacintoshHD/_GitHub/doctordata/api/csv/')
+        os.chdir(cwd)
         print('Saving to files...')
         AYU_CLOSE.to_csv(AYU_fichero[:-4]+'-edit.csv')
         AYU_NO.to_csv(AYU_fichero[:-4]+'-missing_OSM.csv')
