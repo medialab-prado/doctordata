@@ -1,5 +1,0 @@
-{"longitude": -3.697081, "node": 380, "dataset": "fuente", "chat_id": 446512413, "latitude": 40.411396, "date": 1512039371, "type": "missing"}
-{"longitude": -3.6534116, "node": 320, "dataset": "farola", "chat_id": 446512413, "latitude": 40.4378283, "date": 1512039416, "type": "missing"}
-{"longitude": -3.731908, "node": 137, "dataset": "banco", "chat_id": 446512413, "latitude": 40.3882302, "date": 1512039431, "type": "edit"}
-{"type": "edit", "latitude": 40.410861, "dataset": "banco", "chat_id": 446512413, "node": 313, "date": 1512039468, "longitude": -3.693707}
-{"type": "missing", "latitude": 40.413707, "dataset": "fuente", "chat_id": 446512413, "node": 163, "date": 1512039473, "longitude": -3.695723}
