@@ -17,7 +17,7 @@
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>-->
 
             <style>
-                #map {
+                 #map {
                     position:relative;
                     width : 100.0%;
                     height: 800px;
@@ -32,7 +32,7 @@
 </head>
 <body style="background-color:#333;color: white">
 
-     <nav class="navbar navbar-inverse">
+ <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">DoctorData</a>
@@ -43,21 +43,31 @@
           </ul>
         </div>
     </nav>
+ 
 <div class="container">
       <div class="col-md-8">
             <div class="folium-map" id="map" ></div>
       </div>
       <div id = "datasets_container" class="col-md-4 lateral">
         <p style="color:white">Datasets disponibles</p>
-        <!--
-        <label class="checkbox-inline"><input class ="datasets" type="checkbox" value="monumentos">Monumentos</label>
-        <label class="checkbox-inline"><input id ="fonts" class ="datasets" type="checkbox" value="fuentes">Fuentes</label>
-        <label class="checkbox-inline"><input class ="datasets" type="checkbox" value="farolas">Farolas</label>
-        -->
+        
+        <div class = "row">
+            <label class="checkbox-inline"><input id="monumentos" class ="datasets" type="checkbox" value="monumentos">Monumentos</label>
+            <label class="checkbox-inline"><input id ="fuentes" class ="datasets" type="checkbox" value="fuentes">Fuentes</label>
+        </div>
+        <div class = "row">
+            <label class="checkbox-inline"><input id = "farolas" class ="datasets" type="checkbox" value="farolas">Farolas</label>
+            <label class="checkbox-inline"><input class ="datasets" type="checkbox" value="alojamientos">Alojamientos</label>
+        </div>
+        <div class = "row">
+            <label class="checkbox-inline"><input id = "bancos" class ="datasets" type="checkbox" value="bancos">Bancos</label>
+        </div>
+        <div id = "message_load" class = "alert-success">
+        </div>
+        <div id = "message_orphan_nodes" class = "alert-danger">
+        </div>
       </div>
 </div>
-
-
 
 </body>
 <script>
@@ -149,65 +159,143 @@
                     extraClasses: 'fa-rotate-0'
             });
 
-            $.getJSON("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/indice.json", function(json) {
-                for (dataset_index in json){
-                    $('#datasets_container').append("<label class=\"checkbox-inline\"><input id=\""+json[dataset_index]['dataset']+"\" class =\"datasets\" type=\"checkbox\" value=\""+json[dataset_index]['dataset']+"\">"+json[dataset_index]['name']+"</label>");   
-                }
-            });
 
-            $('#fuentes').click(function() {
-                if ($(this).is(':checked')) {
-                  //console.log($(this).val());
-                  $.getJSON("https://raw.githubusercontent.com/medialab-prado/doctordata/master/examples/test-fuentes-close.json", function(json) {
+            function print_elements(url_string){
+                $.getJSON(url_string, function(json) {
+                         $('#message_load').text(json.length+" nodos cargados");
+                         var orphan_nodes = 0;
                          for (node in json){
-                            /*
-                            L.marker([json[node].position.latitude, json[node].position.longitude], {
-                                icon: new L.Icon.Default()
-                            }).addTo(marker_cluster).on("click",circleClick.bind(null, json[node].conflicts));
-                            */
+
                             coords_osm = {}
                             coords_mad = {}
-
+                            
+                            var conflict_string = " <table class=\"table table-striped\"><thead><tr><th>OSM</th><th>MAD</th></tr></thead><tbody>";
+                                
+                            
                             for (conflict in json[node].conflicts){
                                 conflict_object = json[node].conflicts[conflict];
-                                for (conflict_object_index in conflict_object) {
+                                hasMAD = false;
+                                
+                                 for (conflict_object_index in conflict_object) {           
+                                   
+                                    
                                     if (conflict_object[conflict_object_index]["source"]=="OSM") {
+                                        conflict_string = conflict_string + "<tr>";
                                         if ("latitude" in conflict_object[conflict_object_index]) {
-                                            coords_osm["latitude"] = conflict_object[conflict_object_index]["latitude"];
-                                            console.log("Es:"+coords_osm["latitude"])
+                                            conflict_string = conflict_string + "<td>Latitude:"+conflict_object[conflict_object_index]["latitude"]+"</td>";
+                                            coords_osm["latitude"] = conflict_object[conflict_object_index]["latitude"];                   
                                         } else if ("longitude" in conflict_object[conflict_object_index]) {
+                                            conflict_string = conflict_string +"<td>Longitude:"+conflict_object[conflict_object_index]["longitude"]+"</td>";
                                             coords_osm["longitude"] = conflict_object[conflict_object_index]["longitude"];
                                         }
                                     } else if (conflict_object[conflict_object_index]["source"] == "MAD") {
                                         if ("latitude" in conflict_object[conflict_object_index]) {
-                                            coords_mad["latitude"] = conflict_object[conflict_object_index]["latitude"];
+                                            conflict_string = conflict_string + "<td>Latitude:"+conflict_object[conflict_object_index]["latitude"]+"</td></tr>";
+                                            if (conflict_object[conflict_object_index]["latitude"]!=null) {
+                                                hasMAD = true;
+                                                coords_mad["latitude"] = conflict_object[conflict_object_index]["latitude"];
+                                            } else{
+                                                orphan_nodes = orphan_nodes + 1;
+                                            }
                                         } else if ("longitude" in conflict_object[conflict_object_index]) {
-                                            coords_mad["longitude"] = conflict_object[conflict_object_index]["longitude"];
+                                            conflict_string = conflict_string + "<td>Longitude:"+conflict_object[conflict_object_index]["longitude"]+"</td></tr>";
+                                            if (conflict_object[conflict_object_index]["longitude"]!=null) {
+                                                hasMAD = true;
+                                                coords_mad["longitude"] = conflict_object[conflict_object_index]["longitude"];
+                                            }
+                                            
                                         }
                                     }
                                 }
                             }
 
-                            L.marker([coords_osm["latitude"], coords_osm["longitude"]], {
+                            var marker = L.marker([coords_osm["latitude"], coords_osm["longitude"]], {
                                 icon: icon_osm, markerColor: 'blue'
                             }).addTo(marker_cluster)
+                            
+                            conflict_string = conflict_string + "</tbody></table>";
+                            
+                            marker.bindPopup(conflict_string).openPopup();
 
 
-
-                            L.marker([coords_mad["latitude"], coords_mad["longitude"]], {
-                                icon: icon_mad, markerColor: 'green'
-                            }).addTo(marker_cluster)
+                            if (hasMAD) {
+                                var markerMAD = L.marker([coords_mad["latitude"], coords_mad["longitude"]], {
+                                    icon: icon_mad, markerColor: 'green'
+                                }).addTo(marker_cluster)
+                                
+                                markerMAD.bindPopup(conflict_string).openPopup();
+                            }
+                          
                          }
-
+                         $('#message_orphan_nodes').text("Detectados "+orphan_nodes+" nodos sin correspondencia");
                     });
+            };
+            
+             $('#fuentes').click(function() {
+                if ($(this).is(':checked')) {
+                    print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/fuente.json");
+                } else {
+                    clear_fuentes();
                 }
-            });
+             });
             
             if (dataset_param=="fuentes") {
-                console.log("Click");
-               $('#fonts').trigger("click");
+                $('#fuentes').attr( 'checked', true )
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/fuente.json");
             }
             
+            $('#monumentos').click(function() {
+                if ($(this).is(':checked')) {
+                    print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/monumento.json");
+                } else {
+                    clear_fuentes();
+                }
+             });
+            
+            if (dataset_param=="monumentos") {
+                $('#monumentos').attr( 'checked', true )
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/monumento.json");
+            }
+            
+            $('#farolas').click(function() {
+                if ($(this).is(':checked')) {
+                    print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/farola.json");
+                } else {
+                    clear_fuentes();
+                }
+             });
+            
+            if (dataset_param=="farolas") {
+                $('#farolas').attr( 'checked', true )
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/farola.json");
+            }
+            
+            $('#alojamientos').click(function() {
+                if ($(this).is(':checked')) {
+                    print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/alojamiento.json");
+                } else {
+                    clear_fuentes();
+                }
+             });
+            
+            if (dataset_param=="alojamientos") {
+                $('#alojamientos').attr( 'checked', true )
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/alojamiento.json");
+            }
+            
+             $('#bancos').click(function() {
+                if ($(this).is(':checked')) {
+                    print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/banco.json");
+                } else {
+                    clear_fuentes();
+                }
+             });
+            
+            if (dataset_param=="bancos") {
+                $('#bancos').attr( 'checked', true )
+                print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/banco.json");
+            }
+   
             
 
 
