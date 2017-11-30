@@ -9,12 +9,12 @@ from geopy.distance import great_circle
 import yaml
 
 SESSION_ID = random.randint(0,1000000)
-TOKEN = "ADD BOT TOKEN"
+TOKEN = "BOT TOKEN"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 DDURL = "https://medialab-prado.github.io/doctordata/telegram-map.html"
 
 pwd = os.getcwd()
-#pwd = '/Volumes/MacintoshHD/_GitHub/doctordata'
+pwd = '/Volumes/MacintoshHD/_GitHub/doctordata'
 cwd = pwd + '/api/csv/'
 jwd = pwd + '/api/json/'
 bwd = pwd + '/bot/'
@@ -38,6 +38,8 @@ latitude = []
 longitude = []
 
 for test in datos:
+    if test['dataset'] == 'monumento':
+        reto_del_dia = test
     dataset.append(test['dataset'])
     tipo.append(test['type'])
     node.append(test['node'])
@@ -166,10 +168,10 @@ def keyboard_missing(test):
         keyboard_missing = ['El correcto es el naranja','El correcto es el azul','Ninguno de los dos','Otro al azar','Otro cercano','Salir']
     return keyboard_missing
 
-keyboard_wait = ['Comenzamos!','Reto del día','Más info','Salir']
-keyboard_menu = ['Comenzamos!','Salir']
+keyboard_wait = ['Comenzamos!','Reto del día','Más info sobre el proyecto','Denunciar incidencia','Salir']
+keyboard_menu = ['Comenzamos!','Denunciar incidencia','Salir']
 keyboard_go = ['Reto del día','Uno cercano a mi última ubicación','Uno al azar','Salir']
-keyboard_answer = ['Otro cercano','Otro al azar','Salir']
+keyboard_answer = ['Reto del día','Otro cercano','Otro al azar','Salir']
 
 def handle_updates(updates):
     for update in updates["result"]:
@@ -182,6 +184,9 @@ def handle_updates(updates):
             chat = update["message"]["chat"]["id"]
             date = update["message"]["date"]
             first_name = update["message"]["from"]["first_name"]
+
+            if text != '':
+                keyboard = build_keyboard(keyboard_wait)
 
             if text == "/start":
                 keyboard = build_keyboard(keyboard_wait)
@@ -200,18 +205,15 @@ def handle_updates(updates):
                 send_message('Si haces click en Comenzamos! te enviaré retos aleatorios, si me envías tu ubicación mucho mejor, porque estarán cerca tuya..',chat, keyboard)
                 send_message('Si por el contrario te apetece un buen reto, prueba el reto del día donde competirás con otros madrileños por ser el primero en responder.',chat, keyboard)
 
-
-            if text != '':
-                keyboard = build_keyboard(keyboard_wait)
-
             if text == 'Reto del día':
-                test = {'type':'missing', 'node':3232, 'dataset':'fuente', 'latitude': 40.32323, 'longitude': -3.7676}
+                test = {'type':reto_del_dia['type'], 'node':reto_del_dia['node'], 'dataset':reto_del_dia['dataset'], 'latitude': reto_del_dia['position']['latitude'], 'longitude': reto_del_dia['position']['longitude']}
+
                 keyboard = build_keyboard(keyboard_missing(test))
-                send_message(format_message(test),chat, keyboard)
+                send_message('En este caso os traemos la placa de Jacinto Benavente, según el Ayuntamiento está en Calle Atocha, 26 y OpenStreetMap en Calle de León, 28. ¿Dónde está realmente?',chat, keyboard)
                 send_reto(test,chat)
                 send_location(test, chat, date)
 
-            if text == 'Más info':
+            if text == 'Más info sobre el proyecto':
                 keyboard = build_keyboard(keyboard_menu)
                 send_message("Este bot forma parte de un proyecto presentado al concurso de Medialab Prado #Datamad2017.\nCon él pretendemos mejorar los datos disponibles en el portal de datos del Ayuntamiento y que todos colaboremos en mantenerlos al día.", chat, keyboard)
                 send_message("Al responder a cada reto nos aportas información sobre elementos de tu ciudad, su estado de conservación, o simplemente si existen.", chat, keyboard)
@@ -219,6 +221,7 @@ def handle_updates(updates):
                 send_message("Ni que decir tiene que toda la información recopilada se trata de forma totalmente anónima y en cualquier momento puedes dirigirte a nosotros para borrarla o si quieres más info.", chat, keyboard)
                 send_message("Rai y Esteban. Equipo de DoctorData", chat, keyboard)
                 send_message("https://medialab-prado.github.io/doctordata/",chat, keyboard)
+                send_message("Y aquí puedes encontrar el proyecto en Github:\nhttps://github.com/medialab-prado/doctordata",chat, keyboard)
 
             if text == 'Exit' or text == 'Salir':
                 keyboard = build_keyboard(keyboard_wait)
@@ -248,6 +251,9 @@ def handle_updates(updates):
                 keyboard = build_keyboard(keyboard_answer)
                 send_message("Vaya... he metido la pata seguro...", chat, keyboard)
                 set_score(chat,text,date)
+
+            if text == 'Denunciar incidencia':
+                send_message('Dime qué quieres incidencia quieres denunciar.', chat)
 
             if text == 'Otro' or text =='Otro cercano' or text == 'Uno cercano a mi última ubicación':
                 try:
