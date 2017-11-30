@@ -50,17 +50,24 @@
       </div>
       <div id = "datasets_container" class="col-md-4 lateral">
         <p style="color:white">Datasets disponibles</p>
+
         
         <div class = "row">
-            <label class="checkbox-inline"><input id="monumentos" class ="datasets" type="checkbox" value="monumentos">Monumentos</label>
-            <label class="checkbox-inline"><input id ="fuentes" class ="datasets" type="checkbox" value="fuentes">Fuentes</label>
+            <div class="col-md-8">
+                <label class="checkbox-inline"><input id="monumentos" class ="datasets" type="checkbox" value="monumentos">Monumentos</label>
+                <label class="checkbox-inline"><input id ="fuentes" class ="datasets" type="checkbox" value="fuentes">Fuentes</label>
+            </div>
         </div>
         <div class = "row">
-            <label class="checkbox-inline"><input id = "farolas" class ="datasets" type="checkbox" value="farolas">Farolas</label>
-            <label class="checkbox-inline"><input class ="datasets" type="checkbox" value="alojamientos">Alojamientos</label>
+            <div class="col-md-8">
+                <label class="checkbox-inline"><input id="alojamientos" class ="datasets" type="checkbox" value="alojamientos">Alojamientos</label>
+                <label class="checkbox-inline"><input id = "farolas" class ="datasets" type="checkbox" value="farolas">Farolas</label>
+            </div>
         </div>
         <div class = "row">
-            <label class="checkbox-inline"><input id = "bancos" class ="datasets" type="checkbox" value="bancos">Bancos</label>
+            <div class="col-md-8">
+                <label class="checkbox-inline"><input id = "bancos" class ="datasets" type="checkbox" value="bancos">Bancos</label>
+            </div>
         </div>
         <div id = "message_load" class = "alert-success">
         </div>
@@ -142,6 +149,22 @@
                 // do something, like:
                 clickedCircle.bindPopup("some content").openPopup();
             }
+            
+            function clear_markers(){
+                for(var i=0; i<markers.length; i++){
+                        marker_cluster.remove(markers[i]);
+                    }
+                    markers = [];
+                    marker_cluster = L.markerClusterGroup({
+                        disableClusteringAtZoom: 16,
+                        spiderfyOnMaxZoom: false,
+                        maxClusterRadius: 100
+                    });
+                    map.addLayer(marker_cluster);
+                    
+                    $('#message_load').text("Eliminados nodos");
+                    $('#message_orphan_nodes').text('');
+            }
 
             var icon_osm = L.AwesomeMarkers.icon({
                     icon: 'info-sign',
@@ -159,6 +182,7 @@
                     extraClasses: 'fa-rotate-0'
             });
 
+            markers = [];
 
             function print_elements(url_string){
                 $.getJSON(url_string, function(json) {
@@ -216,6 +240,8 @@
                             conflict_string = conflict_string + "</tbody></table>";
                             
                             marker.bindPopup(conflict_string).openPopup();
+                            
+                            markers.push(marker);
 
 
                             if (hasMAD) {
@@ -224,6 +250,8 @@
                                 }).addTo(marker_cluster)
                                 
                                 markerMAD.bindPopup(conflict_string).openPopup();
+                                
+                                markers.push(marker);
                             }
                           
                          }
@@ -232,10 +260,14 @@
             };
             
              $('#fuentes').click(function() {
+                $('#monumentos').attr( 'checked', false )
+                $('#farolas').attr( 'checked', false )
+                $('#alojamientos').attr( 'checked', false )
+                $('#bancos').attr( 'checked', false )
                 if ($(this).is(':checked')) {
                     print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/fuente.json");
                 } else {
-                    clear_fuentes();
+                    clear_markers();
                 }
              });
             
@@ -245,10 +277,14 @@
             }
             
             $('#monumentos').click(function() {
+                $('#fuentes').attr( 'checked', false )
+                $('#farolas').attr( 'checked', false )
+                $('#alojamientos').attr( 'checked', false )
+                $('#bancos').attr( 'checked', false )
                 if ($(this).is(':checked')) {
                     print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/monumento.json");
                 } else {
-                    clear_fuentes();
+                    clear_markers();
                 }
              });
             
@@ -258,10 +294,14 @@
             }
             
             $('#farolas').click(function() {
+                $('#monumentos').attr( 'checked', false )
+                $('#fuentes').attr( 'checked', false )
+                $('#alojamientos').attr( 'checked', false )
+                $('#bancos').attr( 'checked', false )
                 if ($(this).is(':checked')) {
                     print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/farola.json");
                 } else {
-                    clear_fuentes();
+                    clear_markers();
                 }
              });
             
@@ -271,10 +311,14 @@
             }
             
             $('#alojamientos').click(function() {
+                $('#monumentos').attr( 'checked', false )
+                $('#farolas').attr( 'checked', false )
+                $('#fuentes').attr( 'checked', false )
+                $('#bancos').attr( 'checked', false )
                 if ($(this).is(':checked')) {
                     print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/alojamiento.json");
                 } else {
-                    clear_fuentes();
+                    clear_markers();
                 }
              });
             
@@ -284,10 +328,14 @@
             }
             
              $('#bancos').click(function() {
+                $('#monumentos').attr( 'checked', false )
+                $('#farolas').attr( 'checked', false )
+                $('#alojamientos').attr( 'checked', false )
+                $('#fuentes').attr( 'checked', false )
                 if ($(this).is(':checked')) {
                     print_elements("https://raw.githubusercontent.com/medialab-prado/doctordata/master/api/json/banco.json");
                 } else {
-                    clear_fuentes();
+                    clear_markers();
                 }
              });
             
