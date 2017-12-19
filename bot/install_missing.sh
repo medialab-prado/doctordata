@@ -7,6 +7,7 @@ sudo apt-get -y install python3-dev
 sudo apt-get -y install python-pip python3-pip
 sudo apt-get install python3-setuptools
 sudo pip install --upgrade pip
+sudo apt-get -y install python3-pandas
 
 sudo pip install pandas
 sudo pip3 install pandas

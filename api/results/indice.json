@@ -1,0 +1,27 @@
+[
+  {
+    "file”:”banco.json",
+    "dataset":"bancos",
+    "name":"Bancos"
+  },
+  {
+    "file”:”fuente.json",
+    "dataset":"fuentes",
+    "name":"Fuentes"
+  },
+  {
+    "file”:papelera.json",
+    "dataset":"papeleras",
+    "name":"Papeleras"
+  },
+  {
+    "file”:”farola.json",
+    "dataset":"farolas",
+    "name":"Farolas"
+  },
+  {
+    "file”:”monumento.json",
+    "dataset":"monunumentos",
+    "name":"Monumentos"
+  }
+]

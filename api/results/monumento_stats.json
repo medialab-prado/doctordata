@@ -1,0 +1,18 @@
+[
+    {
+      "dataset":{
+        "MAD":{
+          "total_entities": 12,
+          "missing": 3,
+          "edit":2
+        },
+        "OSM":{
+          "total_entities": 10,
+          "missing": 1,
+        },
+        "total":{
+          "total_entities": 18,
+        }
+      }
+    }
+]

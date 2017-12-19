@@ -1,11 +1,11 @@
 ID;SEARCH;AYU;OSM;DOCTORDATA;distance_SAME;distance_CLOSE;palabra;bot
-BANCOS;"[""amenity""=""bench""]";DISTRITO;;DISTRITO;5;50;BANCOS;banco
-BANCOS;"[""amenity""=""bench""]";BARRIO;;BARRIO;5;50;BANCOS;banco
-BANCOS;"[""amenity""=""bench""]";MODELO;;MODELO;5;50;BANCOS;banco
-BANCOS;"[""amenity""=""bench""]";X_ETRS89;;X_ETRS89;5;50;BANCOS;banco
-BANCOS;"[""amenity""=""bench""]";Y_ETRS89;;Y_ETRS89;5;50;BANCOS;banco
-BANCOS;"[""amenity""=""bench""]";Longitud;;LONGITUD;5;50;BANCOS;banco
-BANCOS;"[""amenity""=""bench""]";Latitud;;LATITUD;5;50;BANCOS;banco
+BANCOS;"[""amenity""=""bench""]";DISTRITO;;DISTRITO;5;10;BANCOS;banco
+BANCOS;"[""amenity""=""bench""]";BARRIO;;BARRIO;5;10;BANCOS;banco
+BANCOS;"[""amenity""=""bench""]";MODELO;;MODELO;5;10;BANCOS;banco
+BANCOS;"[""amenity""=""bench""]";X_ETRS89;;X_ETRS89;5;10;BANCOS;banco
+BANCOS;"[""amenity""=""bench""]";Y_ETRS89;;Y_ETRS89;5;10;BANCOS;banco
+BANCOS;"[""amenity""=""bench""]";Longitud;;LONGITUD;5;10;BANCOS;banco
+BANCOS;"[""amenity""=""bench""]";Latitud;;LATITUD;5;10;BANCOS;banco
 FUENTES;"[""amenity""=""drinking_water""]";CODIGO;;CODIGO;5;50;InventarioFuentes;fuente
 FUENTES;"[""amenity""=""drinking_water""]";ZONA VERDE / VIA PUBLICA;;ZV-VP;5;50;InventarioFuentes;fuente
 FUENTES;"[""amenity""=""drinking_water""]";DISTRITO;;DISTRITO;5;50;InventarioFuentes;fuente

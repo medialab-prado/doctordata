@@ -1,0 +1,33 @@
+[
+    {
+        "type": "edit",
+        "dataset": "monumento",
+        "conflicts": [
+            [
+                {
+                    "latitude": 40.4130648,
+                    "source": "OSM"
+                },
+                {
+                    "latitude": 40.4135260,
+                    "source": "MAD"
+                }
+            ],
+            [
+                {
+                    "longitude": -3.6991697,
+                    "source": "OSM"
+                },
+                {
+                    "longitude": -3.7020508,
+                    "source": "MAD"
+                }
+            ]
+        ],
+        "position": {
+            "latitude": 40.4135260,
+            "longitude": -3.7020508
+        },
+        "node": 0
+    }
+]
